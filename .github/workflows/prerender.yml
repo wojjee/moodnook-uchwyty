@@ -23,6 +23,11 @@ jobs:
           cd main/cap && npm i --no-save playwright-core@1 >/dev/null
           (cd ../../pages && python3 -m http.server 8774 >/dev/null 2>&1 &) ; sleep 2
           CHROME=$(which google-chrome) node capture.js http://localhost:8774/ ../../out
+      - name: Thumbnail test - every photo present, non-blank, pre-rendered, 30/30 coverage (blocks deploy)
+        run: |
+          rm -rf pages/v8/p && cp -r out pages/v8/p
+          (cd pages && python3 -m http.server 8775 >/dev/null 2>&1 &) ; sleep 2
+          cd main/cap && CHROME=$(which google-chrome) node test_thumbs.js http://localhost:8775/ --static
       - name: Commit to gh-pages and main
         run: |
           for d in pages main; do
@@ -30,6 +35,6 @@ jobs:
             git -C $d config user.name "github-actions[bot]"
             git -C $d config user.email "41898283+github-actions[bot]@users.noreply.github.com"
             git -C $d add v8 index.html 404.html robots.txt sitemap.xml
-            git -C $d diff --cached --quiet || git -C $d commit -m "v8: spec v8 single source, GRID ring-lattice, inquiry path, service + legal template pages"
+            git -C $d diff --cached --quiet || git -C $d commit -m "v8.1: pre-render catalogue + configurator photos, EN photo fallback, typo fix"
             git -C $d push
           done
