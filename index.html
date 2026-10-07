@@ -15,7 +15,7 @@
 <script>
 (function(){
   var N=6, urls=[];
-  for(var i=0;i<N;i++) urls.push('v3/'+(i<10?'0':'')+i+'.b64');
+  for(var i=0;i<N;i++) urls.push('v4/'+(i<10?'0':'')+i+'.b64');
   var libs=['https://cdn.jsdelivr.net/npm/react@18.3.1/umd/react.production.min.js','https://cdn.jsdelivr.net/npm/react-dom@18.3.1/umd/react-dom.production.min.js','https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js'];
   function load(src){return new Promise(function(ok,ko){var s=document.createElement('script');s.src=src;s.crossOrigin='anonymous';s.onload=ok;s.onerror=function(){ko(new Error(src));};document.head.appendChild(s);});}
   var libsP=libs.reduce(function(p,src){return p.then(function(){return load(src);});},Promise.resolve());
@@ -26,7 +26,7 @@
     return new Response(new Blob([a]).stream().pipeThrough(new DecompressionStream('gzip'))).text();
   })
   .then(function(html){ return libsP.then(function(){return html;}); })
-  .then(function(html){ document.open(); document.write(html); document.close(); })
+  .then(function(html){ html=html.replace('<head>','<head><script src="v4/p/nfstatic.js"><\/script>'); document.open(); document.write(html); document.close(); })
   .catch(function(e){ var el=document.getElementById('nf-boot'); if(el){ el.style.font='14px monospace'; el.textContent='Błąd ładowania strony: '+e.message; } });
 })();
 </script>
