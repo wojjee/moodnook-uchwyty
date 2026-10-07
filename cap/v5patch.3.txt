@@ -1,0 +1,238 @@
+@ 233661 234923 128
+"NK"].map(T),S=e.config.groups,j=this.state.cfg,C=window.NFCfg,A=C.normalize(j),v=this.state.cfgExplode,x=C.groups(A,a).map((e=>
+@ 234925 234972 66
+label:e.label,note:e.note||"",key:e.key,options:e.options.map((a=>
+@ 234974 235035 155
+label:a.label,title:a.reason,code:a.code,disabled:a.disabled,active:a.active,style:this.optBtn(a.active)+(a.disabled?";opacity:.34;cursor:not-allowed":""),
+@ 235047 235065 31
+{a.disabled||this.setState((t=>
+@ 235067 235087 37
+cfg:C.select(t.cfg,e.key,a.code)})))}
+@ 235092 235096 0
+
+@ 235100 235822 63
+L=C.sku(A),B=C.summary(A,a),D={__html:this.nf3(C.preview(A,v))}
+@ 236041 236174 176
+P=I(!v),F=I(v),H=v?a?"widok rozłożony · podkładka · nóżka · korpus · rdzeń":"exploded · washer · stem · body · core":a?"render poglądowy · skala":"reference render · to scale",
+@ 236192 236213 21
+G=this.gridInfo(),N={
+@ 236284 236296 50
+COVE:"pull",ORBQ:"knob",DISCQ:"knob",RAILQ:"pull"}
+@ 236322 236482 160
+W=this.state.productColl,_="02"===W,q="03"===W,U=q?G[K]:_?O[K]:s[K],Q=K,$=q?"03 GRID":_?"02 RILL":"01 Fine Line",V=U[a?"pl":"en"],Z=U.intro[a?"pl":"en"],X=(()=>
+@ 236514 236542 28
+a=this.state.finish,t=["SB",
+@ 236547 236565 18
+"AB"].includes(a),
+@ 236591 236615 24
+o=U.spec.filter((([e])=>
+@ 236656 236710 54
+1).concat(i).concat(o.slice(1)):U.spec.filter((([e])=>
+@ 236743 236748 5
+a])=>
+@ 236754 236758 4
+v:a}
+@ 236833 236850 17
+const a=["FRAME",
+@ 236893 236901 31
+"PANE","ORBQ","DISCQ","RAILQ"];
+@ 236941 236956 15
+v:a.indexOf(K)>
+@ 237288 237514 226
+v:t?e?"naturalne właściwości mosiądzu ("+a+") · wersje z certyfikatem wkrótce":"natural property of brass ("+a+") · certified versions coming soon":e?"nie dotyczy — wykończenie z powłoką ("+a+")":"n/a — coated finish ("+a+")"}
+@ 237522 237547 24
+J=!_&&!q&&!!U.insert,Y={
+@ 237603 237622 19
+):_?this.nfr_rill({
+@ 237718 237750 37
+insert:/^DISC/.test(K)?j.insert:"AM",
+@ 237775 237876 208
+ending:"ORB"===K||"DISC"===K?"ORB"===K&&"FL"===j.ending?"RD":"CH"===j.ending?"FL":j.ending:/Q$/.test(K)&&"CH"===j.ending?"CH":"FL",leg:(j.stem||"SLR").slice(0,2),stem:(j.stem||"SLR").slice(2),washer:j.washer,
+@ 237900 237959 59
+ee="NF-"+K+" · "+(a?"render poglądowy":"reference render"),
+@ 237983 238015 63
+"ARC","DISCQ","ORBQ","RAILQ","FRAME"],te=!_&&!q&&ae.indexOf(K)>
+@ 238018 238042 24
+ie={__html:te?this.nfr({
+@ 238067 238083 16
+insert:j.insert,
+@ 238108 238165 172
+leg:(j.stem||"SLR").slice(0,2),stem:(j.stem||"SLR").slice(2),ending:"ORB"===K?"RD":/Q$/.test(K)?"RD"===j.ending?"FL":j.ending:"CH"===j.ending?"FL":j.ending,washer:j.washer,
+@ 238200 238317 117
+oe={AM:a?"bursztyn":"amber",BR:a?"mosiądz":"brass",GL:a?"szkło dymione":"smoked glass",ST:a?"trawertyn":"travertine"}
+@ 238318 238323 5
+ne=[{
+@ 238330 238414 133
+k:S.washer,v:{RP:a?"RP · okrągła":"RP · round",SP:a?"SP · kwadratowa":"SP · square",NP:a?"NP · bez":"NP · none"}[j.washer]||j.washer}
+@ 238423 238487 199
+k:S.leg,v:(j.stem||"SLR").slice(0,2)+" · "+("SL"===(j.stem||"SLR").slice(0,2)?a?"smukła":"slim":a?"szeroka":"wide")+" · "+("Q"===(j.stem||"SLR").slice(2)?a?"kwadratowa":"square":a?"okrągła":"round")}
+@ 238496 238579 99
+k:a?"Korpus":"Body",v:K.replace(/Q$/," Q")+(/^(DISC|ORB)/.test(K)?" · M / L / XL":" · CTC 96–320")}
+@ 238588 238644 61
+k:S.insert,v:/^DISC/.test(K)?j.insert+" · "+oe[j.insert]:"—"}
+@ 238653 238741 144
+k:S.ending,v:{FL:a?"FL · płaskie":"FL · flat",RD:a?"RD · zaokrąglone":"RD · rounded",CH:a?"CH · fazowane":"CH · chamfered"}[j.ending]||j.ending}
+@ 238750 238825 75
+k:S.finish,v:this.state.finish+" · "+u[this.state.finish][this.state.lang]}
+@ 238827 238861 55
+re=_,se=!_&&!q&&!/Q$/.test(K),le=this.state.view3d&&se,
+@ 239101 239111 6
+me=se,
+@ 239115 239245 130
+knob:a?"gałka":"knob",pull:a?"uchwyt":"pull",lever:a?"klamka":"lever",electric:a?"elektryka":"electrical",plate:a?"płyta":"plate"}
+@ 239306 239306 204
+feat:[]},ORBQ:{rooms:["kitchen","bath","living","bed"],mount:"m4",feat:[]},DISCQ:{rooms:["kitchen","bath","living","bed"],mount:"m4",feat:["modular"]},RAILQ:{rooms:["kitchen","joinery","bed"],mount:"ctc",
+@ 240591 240591 30
+"COVE","ORBQ","DISCQ","RAILQ",
+@ 240599 240626 20
+"EDGE"].forEach((e=>
+@ 240627 240640 13
+const t=N[e],
+@ 240710 240762 71
+name:e.replace(/Q$/," Q"),sub:s[e][a?"pl":"en"],type:t,typeLabel:he[t],
+@ 241100 241118 18
+const t=O[e].type,
+@ 241190 241235 45
+sub:O[e][a?"pl":"en"],type:t,typeLabel:he[t],
+@ 241536 241554 18
+const t=G[e].type,
+@ 241626 241671 45
+sub:G[e][a?"pl":"en"],type:t,typeLabel:he[t],
+@ 242339 242378 39
+ge=ke.length,fe=(e,a)=>a.map((([a,t])=>
+@ 242380 242425 45
+label:t,style:this.optBtn(this.state[e]===a),
+@ 242455 242459 4
+a)=>
+@ 242460 242469 9
+const t={
+@ 242471 242487 16
+return t[e]=a,t}
+@ 242491 242495 4
+a))}
+@ 242499 242513 14
+be=fe("fColl",
+@ 242521 242542 21
+a?"Wszystkie":"All"],
+@ 242600 242614 14
+ze=fe("fType",
+@ 242622 242654 32
+a?"Wszystkie typy":"All types"],
+@ 242753 242767 14
+Ee=fe("fRoom",
+@ 242775 242796 21
+a?"Wszystkie":"All"],
+@ 242807 242830 23
+a?"Kuchnia":"Kitchen"],
+@ 242838 242863 25
+a?"Łazienka":"Bathroom"],
+@ 242873 242893 20
+a?"Salon":"Living"],
+@ 242900 242925 25
+a?"Sypialnia":"Bedroom"],
+@ 242936 242960 24
+a?"Zabudowa":"Joinery"],
+@ 242969 242988 19
+a?"Drzwi":"Doors"],
+@ 242999 243019 20
+a?"Okna":"Windows"],
+@ 243027 243046 19
+a?"Ściana":"Wall"],
+@ 243058 243100 42
+a?"Kontrakt":"Contract"]]),Te=fe("fMount",
+@ 243108 243129 21
+a?"Wszystkie":"All"],
+@ 243148 243185 37
+a?"CTC · siatka 32":"CTC · 32 grid"],
+@ 243197 243230 33
+a?"Trzpień 8 mm":"Spindle 8 mm"],
+@ 243242 243275 33
+a?"Trzpień 7 mm":"Spindle 7 mm"],
+@ 243282 243312 30
+a?"Puszka 80/86":"Box 80/86"],
+@ 243325 243365 40
+a?"Ukryty":"Concealed"]]),Me=fe("fFeat",
+@ 243373 243394 21
+a?"Wszystkie":"All"],
+@ 243405 243429 24
+a?"Modułowy":"Modular"],
+@ 243443 243474 31
+a?"Bezuchwytowy":"Handleless"],
+@ 243485 243530 45
+a?"Dotykowy / ryflowany":"Tactile / fluted"],
+@ 243541 243582 44
+a?"Graficzny / kątowy":"Graphic / angular"],
+@ 243594 243912 318
+a?"Elektryka":"Electrical"]]),Re=this.state.advOpen,Se=(Re?a?"Ukryj filtry zaawansowane":"Hide advanced filters":a?"Filtry zaawansowane":"Advanced filters")+(Re?" −":" +"),je="all"!==this.state.fColl||"all"!==this.state.fType||"all"!==this.state.fRoom||"all"!==this.state.fMount||"all"!==this.state.fFeat||""!==we,Ce={
+@ 243993 244003 10
+Ae=(e,a)=>
+@ 244085 244089 4
+a))}
+@ 244091 244106 15
+ve=Ae(this.nfr,
+@ 244138 244153 15
+xe=Ae(this.nfr,
+@ 244185 244205 20
+Le=Ae(this.nfr_rill,
+@ 244236 244256 20
+Be=Ae(this.nfr_rill,
+@ 244299 244319 20
+De=Ae(this.nfr_grid,
+@ 244334 244354 20
+Ie=Ae(this.nfr_grid,
+@ 244381 244419 38
+Pe=(e.atelier.people||[]).map(((e,a)=>
+@ 244426 244450 24
+n:"0"+(a+1),flip:a%2==1}
+@ 244467 244500 33
+fib:t?"Fib · mała":"Fib · small"}
+@ 244510 244547 37
+fib:t?"Fib · średnia":"Fib · medium"}
+@ 244557 244590 33
+fib:t?"Fib · duża":"Fib · large"}
+@ 244787 244935 148
+for(let a=0;a<=26;a++){const t=(e.a0+(e.a1-e.a0)*a/26)*Math.PI/180;He.push((e.cx+e.r*Math.cos(t)).toFixed(1)+","+(e.cy+e.r*Math.sin(t)).toFixed(1))}
+@ 244939 244966 27
+const Oe=He.join(" "),Ge=[{
+@ 244991 245142 151
+name:t?"Model 3D · CAD":"3D model · CAD",desc:t?"STEP / IGES — bryła do projektu":"STEP / IGES — solid for your project",action:t?"Pobierz":"Download"}
+@ 245168 245243 75
+name:t?"Model 3D · web":"3D model · web",desc:t?"glTF / GLB — wizualizacja,
+@ 245281 245311 30
+action:t?"Pobierz":"Download"}
+@ 245337 245398 61
+name:t?"Rysunek 2D":"2D drawing",desc:t?"DWG / DXF — wymiary,
+@ 245439 245469 30
+action:t?"Pobierz":"Download"}
+@ 245495 245555 60
+name:t?"Karta katalogowa":"Spec sheet",desc:t?"Specyfikacja,
+@ 245605 245635 30
+action:t?"Pobierz":"Download"}
+@ 246567 246778 247
+formsRound:d,formsAngular:c,flVer:p,rillProducts:m,gridProducts:h,finishSwatches:y,activeFinishName:w,livingFinishes:M,protectedFinishes:R,finishBadge:g,finishBadgeStyle:f,finishBadgeDot:b,configGroups:x,sku:L,summary:B,previewHtml:D,techFiles:Ge,
+@ 246790 246946 155
+spiralPoints:Oe,prodName:Q,prodSub:V,prodIntro:Z,prodSpec:X,prodHasInsert:J,heroRenderHtml:Y,heroHomeHtml:Ce,atelierPeople:Pe,prodColLabel:$,prodIsRill:re,
+@ 247003 247019 16
+catalogCount:ge,
+@ 247183 247194 11
+advOpen:Re,
+@ 247253 247284 31
+advToggleLabel:Se,anyFilter:je,
+@ 247456 247477 19
+se&&this.setState({
+@ 247536 247603 67
+prodRenderLabel:ee,prodHasAnatomy:te,anatomyHtml:ie,anatomyRows:ne,
+@ 247642 247644 142
+{const a=window.NFCfg;let t=a?a.select(e.cfg,"form",ae.indexOf(K)>=0?K:e.cfg.form):e.cfg;return t=a?a.select(t,"finish",this.state.finish):t,{
+@ 247658 247732 6
+cfg:t}
+@ 247733 247737 3
+)),
+@ 247756 247795 39
+assembledTabStyle:P,explodedTabStyle:F,
+@ 247890 247907 17
+previewCaption:H,
+@ 247935 247963 28
+homeCard2A:Le,homeCard2B:Be,
+@ 247977 247991 14
+homeCard3B:Ie}
