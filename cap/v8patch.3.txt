@@ -1,0 +1,38 @@
+@ 80486 80548 112
+return r.push({k:u("coll",a),v:s[n.coll]+" · "+l(n.cat,a)}),r.push({k:u("form",a),v:n.name+" · "+("Q"===n.v?i(a,
+@ 80560 80575 15
+"angular"):i(a,
+@ 80596 80699 118
+m(t,"size",!0)||r.push({k:u("size",a),v:f("size")}),m(t,"mount",!0)||r.push({k:u("mount",a),v:"CTC "+o[t.mount]+" mm"}
+@ 80736 80736 31
+"rose","esc","spindle","plate",
+@ 80785 80808 4
+m(t,
+@ 80810 80822 28
+a)||r.push({k:u(e,a),v:f(e)}
+@ 80827 80847 477
+"electric"===n.cat&&(r.push({k:i(a,"Puszka","Back box"),v:"Ø60 · 60 mm (DIN 49073-1) · "+i(a,"raster","pitch")+" 71 mm"}),r.push({k:i(a,"Zakres","Scope"),v:i(a,"tylko ramki i osłony — mechanizm certyfikowanego producenta","frames & covers only — mechanism by a certified manufacturer")}),r.push({k:i(a,"Bezpieczeństwo","Safety"),v:i(a,"uziemienie / izolacja metalowych osłon [do potwierdzenia]","earthing / insulation of metal covers [to be confirmed]")})),M(t)&&r.push({k:i(a,
+@ 80867 80873 6
+v:i(a,
+@ 80928 80942 14
+r.push({k:i(a,
+@ 80958 80964 6
+v:i(a,
+@ 81011 81013 2
+r}
+@ 81014 81118 91
+preview:function(e,a){var t=p(e),n=c(t),r={form:t.form,finish:t.finish,aspect:1.05,panel:1}
+@ 81119 81177 163
+return m(t,"size",!0)||(r.si=n.sizes.map((function(e){return e[0]})).indexOf(t.size),"furniture"!==n.cat&&(r.size=t.size)),m(t,"mount",!0)||(r.ctc=o[t.mount]),m(t,
+@ 81186 81215 29
+!0)||(r.insert=t.insert),m(t,
+@ 81222 81249 27
+!0)||(r.leg=t.stem.slice(0,
+@ 81252 81289 66
+r.stem=t.stem.slice(2)),m(t,"washer",!0)||(r.washer=t.washer),m(t,
+@ 81298 81330 109
+!0)||(r.ending=t.ending),["rose","esc","plate"].forEach((function(e){m(t,e,!0)||(r[e]=t[e])})),a&&(r.xp=1),r}
+@ 81331 81339 8
+mixed:M}
+@ 134879 134896 52
+if(g.classList.contains('nfs-img'))g.loading='lazy';
