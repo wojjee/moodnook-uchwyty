@@ -14,11 +14,11 @@ for s,e,t in ops: assert s>=p; r.append(A[p:s]);r.append(t);p=e
 r.append(A[p:]);B=''.join(r).encode()
 want=open(here+'/v8patch.sha1').read().strip()
 assert hashlib.sha1(B).hexdigest()==want,'patched page SHA-1 mismatch %s'%hashlib.sha1(B).hexdigest()
-# v9: exact-match text edits applied on top of the SHA-verified v8 page (cap/v9edits.json: [[old,new,count],...]), verified by cap/v9.sha1
+# v9: exact-match text edits applied on top of the SHA-verified v8 page (cap/v9edits.json then cap/v9bedits.json: [[old,new,count],...]), verified by cap/v9.sha1
 import json
 if os.path.exists(here+'/v9edits.json'):
   T=B.decode()
-  for o,nw,c in json.load(open(here+'/v9edits.json',encoding='utf-8')):
+  for o,nw,c in [x for f in ('v9edits.json','v9bedits.json') if os.path.exists(here+'/'+f) for x in json.load(open(here+'/'+f,encoding='utf-8'))]:
     assert T.count(o)==c,'v9 edit expects %d match(es), found %d: %r'%(c,T.count(o),o[:80]); T=T.replace(o,nw)
   B=T.encode(); want9=open(here+'/v9.sha1').read().strip() if os.path.exists(here+'/v9.sha1') else ''
   assert want9 in('',hashlib.sha1(B).hexdigest()),'v9 page SHA-1 mismatch %s'%hashlib.sha1(B).hexdigest()

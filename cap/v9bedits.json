@@ -1,0 +1,32 @@
+[
+[
+"Le=Ae(this.nf3,{form:\"RAIL\",si:1}),Be=Ae(this.nf3,{form:\"RAILQ\",si:1}),Pe=Ae(this.nf3,{form:\"DIAL-M\",si:1,photoPad:1.25}),Fe=Pe,De=Ae(this.nf3,{form:\"STUD\",si:1,insert:\"BR\",photoPad:1.25}),Ie=De",
+"Le=Ae(this.nf3,{form:\"ORB\",si:1,photoPad:1.05}),Be=Ae(this.nf3,{form:\"RAILQ\",si:1}),Pe=Ae(this.nf3,{form:\"DRUM\",si:1,insert:\"BR\",photoPad:1.0}),Fe=Pe,De=Ae(this.nf3,{form:\"STUD\",si:1,insert:\"BR\",photoPad:1.0}),Ie=De",
+1
+],
+[
+"<div class=\"nf-hc\" style=\"height:236px;background:linear-gradient(180deg,#F1EEE7 0%,#E6E1D7 100%);display:flex;align-items:center;justify-content:center;padding:0 18px\">\n<div style=\"position:relative;width:100%;max-width:300px;height:100%\"><div style=\"position:absolute;left:0;right:0;top:-2%;height:66%\" sc-camel-dangerously-set-inner-h-t-m-l=\"{{ homeCard1A }}\"></div><div style=\"position:absolute;left:0;right:0;bottom:-2%;height:66%\" sc-camel-dangerously-set-inner-h-t-m-l=\"{{ homeCard1B }}\"></div></div>",
+"<div class=\"nf-hc\" style=\"height:236px;background:linear-gradient(180deg,#F1EEE7 0%,#E6E1D7 100%);display:flex;align-items:center;justify-content:center;padding:0 18px\">\n<div style=\"display:flex;align-items:center;width:100%;max-width:330px;height:100%\"><div style=\"flex:0 0 38%;height:64%\" sc-camel-dangerously-set-inner-h-t-m-l=\"{{ homeCard1A }}\"></div><div style=\"flex:1 1 auto;height:100%\" sc-camel-dangerously-set-inner-h-t-m-l=\"{{ homeCard1B }}\"></div></div>",
+1
+],
+[
+"fit:\"card\",aspect:a||1.9,bg:!1},e.modules.insert?{insert:\"AM\"}:{}",
+"fit:\"card\",aspect:a||1.9,bg:!1},e.modules.insert?{insert:\"BR\"}:{}",
+1
+],
+[
+"var t={AM:[3938821,.06,0,1,1181185],",
+"var t={AM:[16777215,.12,0,1,0x8a8a8a],",
+1
+],
+[
+"return n.color.convertSRGBToLinear(),t[4]&&(n.emissive=new e.Color(t[4]),n.emissiveIntensity=.6)",
+"return n.color.convertSRGBToLinear(),\"AM\"===a&&(window.__nfAM||(window.__nfAM=w(256,256,(function(c,W,H){var q=c.createRadialGradient(W/2,H/2,0,W/2,H/2,.71*W);q.addColorStop(0,\"#C68C46\"),q.addColorStop(.32,\"#94521E\"),q.addColorStop(.64,\"#5A280C\"),q.addColorStop(1,\"#2E1203\"),c.fillStyle=q,c.fillRect(0,0,W,H)}),!0)),n.map=n.emissiveMap=window.__nfAM),t[4]&&(n.emissive=new e.Color(t[4]),n.emissiveIntensity=.22)",
+1
+],
+[
+"function S(a,t){var n=new e.Mesh(a,t);",
+"function S(a,t){t&&window.__nfAM&&t.map===window.__nfAM&&(function(G){G.computeBoundingBox();var b=G.boundingBox,c=b.getCenter(new e.Vector3),z=b.getSize(new e.Vector3),Z=[z.x,z.y,z.z],C=[c.x,c.y,c.z],ax=z.x<=z.y&&z.x<=z.z?0:z.y<=z.z?1:2,i1=0===ax?1:0,i2=2===ax?1:2,h1=Math.max(.001,Z[i1]/2),h2=Math.max(.001,Z[i2]/2),P=G.attributes.position,U=new Float32Array(2*P.count);for(var j=0;j<P.count;j++){var q=[P.getX(j),P.getY(j),P.getZ(j)];U[2*j]=.5+.5*(q[i1]-C[i1])/h1,U[2*j+1]=.5+.5*(q[i2]-C[i2])/h2}G.setAttribute(\"uv\",new e.BufferAttribute(U,2))})(a);var n=new e.Mesh(a,t);",
+1
+]
+]
