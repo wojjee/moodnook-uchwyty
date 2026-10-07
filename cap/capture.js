@@ -11,7 +11,7 @@ fs.mkdirSync(OUT,{recursive:true});await p.setViewportSize({width:1200,height:63
 await p.evaluate(()=>document.querySelector('.nf-insitu')&&document.querySelector('.nf-insitu').scrollIntoView());
 await grab();let t=Date.now();while(Date.now()-t<90000&&await p.evaluate(()=>document.querySelectorAll('[data-nf-scene]').length>document.querySelectorAll('[data-nf-scene]>img.nfs-img').length))await p.waitForTimeout(500);await grab();
 await nav('Kolekcje');await settle(180000);await grab();
-const models=await p.evaluate(()=>Object.keys(window.NF_SPEC||{}));console.log('models',models.join(','));
+const models=await p.evaluate(()=>(window.NF_CATALOG||{models:[]}).models.map(m=>m.name));console.log('models',models.join(','));
 await nav('Konfigurator');await settle(60000);await grab();
 for(const m of models){await nav('Produkt');const l=p.getByText(m,{exact:true}).first();if(await l.count()){await l.click();await p.waitForTimeout(500);await settle(60000);await grab();}}
 const res=await p.evaluate(async(G)=>{const o={};for(const [k,u] of Object.entries(G)){if(!u||!u.startsWith('blob:'))continue;const im=new Image();im.src=u;await im.decode();const sc=k.startsWith('scene:')?1200:800;const r=Math.min(1,sc/Math.max(im.width,im.height));const c=document.createElement('canvas');c.width=Math.round(im.width*r);c.height=Math.round(im.height*r);c.getContext('2d').drawImage(im,0,0,c.width,c.height);o[k]=c.toDataURL('image/webp',0.8).split(',')[1];}return o;},got);
