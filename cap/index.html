@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NOOK FORM — biżuteria mebli z litego mosiądzu | Mood Nook</title>
+<meta name="description" content="NOOK FORM by Mood Nook — biżuteria mebli. Gałki, uchwyty i klamki z litego mosiądzu w jednym systemie M4. Złóż swój uchwyt.">
+<meta name="theme-color" content="#15130F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%2315130F%27/%3E%3Ccircle cx=%2732%27 cy=%2732%27 r=%2718%27 fill=%27none%27 stroke=%27%23C4A265%27 stroke-width=%275%27/%3E%3Ccircle cx=%2732%27 cy=%2732%27 r=%279%27 fill=%27%23D98A2B%27/%3E%3C/svg%3E">
+<style>html,body{margin:0;height:100%;background:#F2EFE8}#nf-boot{height:100%;display:flex;align-items:center;justify-content:center;font:600 22px/1 Georgia,serif;letter-spacing:.18em;color:#191611}</style>
+</head>
+<body>
+<div id="nf-boot">NOOK FORM</div>
+<noscript>Ta strona wymaga JavaScript.</noscript>
+<script>
+(function(){
+  var N=6, urls=[];
+  for(var i=0;i<N;i++) urls.push('v4/'+(i<10?'0':'')+i+'.b64');
+  var libs=['https://cdn.jsdelivr.net/npm/react@18.3.1/umd/react.production.min.js','https://cdn.jsdelivr.net/npm/react-dom@18.3.1/umd/react-dom.production.min.js','https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js'];
+  function load(src){return new Promise(function(ok,ko){var s=document.createElement('script');s.src=src;s.crossOrigin='anonymous';s.onload=ok;s.onerror=function(){ko(new Error(src));};document.head.appendChild(s);});}
+  var libsP=libs.reduce(function(p,src){return p.then(function(){return load(src);});},Promise.resolve());
+  Promise.all(urls.map(function(u){return fetch(u).then(function(r){if(!r.ok)throw new Error(u+' '+r.status);return r.text();});}))
+  .then(function(parts){
+    var b=atob(parts.join('').replace(/\s+/g,'')), a=new Uint8Array(b.length);
+    for(var i=0;i<b.length;i++) a[i]=b.charCodeAt(i);
+    return new Response(new Blob([a]).stream().pipeThrough(new DecompressionStream('gzip'))).text();
+  })
+  .then(function(html){ return libsP.then(function(){return html;}); })
+  .then(function(html){ html=html.replace('<head>','<head><script src="v4/p/nfstatic.js"><\/script>'); document.open(); document.write(html); document.close(); })
+  .catch(function(e){ var el=document.getElementById('nf-boot'); if(el){ el.style.font='14px monospace'; el.textContent='Błąd ładowania strony: '+e.message; } });
+})();
+</script>
+</body>
+</html>

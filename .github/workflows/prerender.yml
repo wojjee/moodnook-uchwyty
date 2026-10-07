@@ -1,0 +1,34 @@
+name: Build v4 + pre-render static product photos
+on: workflow_dispatch
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { path: main }
+      - uses: actions/checkout@v4
+        with: { ref: gh-pages, path: pages }
+      - name: Build v4 page (v3 chunks + patch, SHA-1 verified)
+        run: |
+          python3 main/cap/build_v4.py pages pages
+          python3 main/cap/build_v4.py pages main
+          cp main/cap/index.html pages/index.html
+          cp main/cap/index.html main/index.html
+          mkdir -p pages/v4/p && cp main/cap/nfstatic.js pages/v4/p/
+      - name: Render static WebP images
+        run: |
+          cd main/cap && npm i --no-save playwright-core@1 >/dev/null
+          (cd ../../pages && python3 -m http.server 8774 >/dev/null 2>&1 &) ; sleep 2
+          CHROME=$(which google-chrome) node capture.js http://localhost:8774/ ../../out
+      - name: Commit to gh-pages and main
+        run: |
+          for d in pages main; do
+            rm -rf $d/v4/p && cp -r out $d/v4/p
+            git -C $d config user.name "github-actions[bot]"
+            git -C $d config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+            git -C $d add v4 index.html
+            git -C $d diff --cached --quiet || git -C $d commit -m "v4: CW724R spec + pre-rendered static WebP product photos"
+            git -C $d push
+          done
