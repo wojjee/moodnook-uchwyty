@@ -1,0 +1,520 @@
+@ 895 915 20
+ "Ø21 · Ø34 · Ø55"],
+@ 939 957 15
+ "27,2–51 mm"],
+@ 974 1033 12
+ "Ø8,0 mm"],
+@ 1066 1081 15
+ "≈ 39–244 g"],
+@ 1331 1351 20
+ "□13 · □21 · □34"],
+@ 1375 1390 13
+ "20–41 mm"],
+@ 1407 1413 5
+ "Ø8,
+@ 1420 1466 0
+
+@ 1499 1514 15
+ "≈ 20–172 g"],
+@ 1764 1784 20
+ "Ø21 · Ø34 · Ø55"],
+@ 1808 1823 15
+ "21–28,2 mm"],
+@ 1840 1899 12
+ "Ø8,0 mm"],
+@ 1932 1947 14
+ "≈ 18–97 g"],
+@ 2198 2218 20
+ "□19 · □31 · □50"],
+@ 2242 2333 13
+ "21–26 mm"],
+@ 2366 2381 15
+ "≈ 19–104 g"],
+@ 2706 2719 13
+ "37–39 mm"],
+@ 2798 2846 0
+
+@ 2879 2894 15
+ "≈ 57–237 g"],
+@ 3220 3281 13
+ "37–38 mm"],
+@ 3421 3436 15
+ "≈ 72–244 g"],
+@ 3760 3773 13
+ "37–39 mm"],
+@ 3808 3856 0
+
+@ 3889 3904 15
+ "≈ 47–194 g"],
+@ 4230 4291 13
+ "37–38 mm"],
+@ 4393 4408 15
+ "≈ 65–202 g"],
+@ 4788 4836 38
+ "2× trzpień M3×8 wlutowany (L 144)"],
+@ 4869 4883 14
+ "≈ 31–77 g"],
+@ 5262 5310 38
+ "2× trzpień M3×8 wlutowany (L 144)"],
+@ 5343 5358 15
+ "≈ 43–112 g"],
+@ 5608 5628 20
+ "Ø21 · Ø34 · Ø55"],
+@ 5652 5667 17
+ "19,2–34,2 mm"],
+@ 5684 5777 12
+ "Ø8,0 mm"],
+@ 5810 5825 15
+ "≈ 27–191 g"],
+@ 6153 6166 13
+ "38–40 mm"],
+@ 6218 6331 27
+ "Ø8 (SLR) / □8 (SLQ) mm"],
+@ 6364 6379 15
+ "≈ 73–278 g"],
+@ 6598 6631 35
+ "AXIS-M": [["Warianty / Variants",
+@ 6724 6810 0
+
+@ 6843 6858 14
+ "≈ 31–94 g"],
+@ 7077 7245 106
+ "AXIS-D": [["Warianty / Variants", "DT1 · drzwi 35–45 mm · DT2 · drzwi 40–60 mm · DT3 · drzwi 60–80 mm"],
+@ 7278 7293 12
+ "≈ 289 g"],
+@ 7512 7565 59
+ "VANE-M": [["Warianty / Variants", "L 55 · L 89 · L 144"],
+@ 7589 7723 45
+ "32–34 mm"], ["Pręt / Rod", "Ø8 mm (L 89)"],
+@ 7756 7771 14
+ "≈ 31–95 g"],
+@ 7990 8023 1110
+ "VANE-O": [["Warianty / Variants", "□7×35 · □7×35 · L (zamykana) · □7×40 · □7×40 · L (zamykana)"], ["Masa (szac.) / Weight (est.)", "≈ 195–204 g"], ["Stop / Alloy", "CW724R (CuZn21Si3P, bezołowiowy)"], ["Wykończenia / Finishes", "SB · PB · AB · MB · WH · NK"], ["Powłoki / Coatings", "MB · WH: PVD / e-coat · NK: galw."], ["Tolerancje / Tolerances", "ISO 2768-mK"]], "DIAL-M": [["Warianty / Variants", "Ø21 · Ø34 · Ø55"], ["Wysięg / Projection", "18,4–32 mm"], ["Nóżka / Stem", "Ø8,0 mm"], ["Masa (szac.) / Weight (est.)", "≈ 27–198 g"], ["Stop / Alloy", "CW724R (CuZn21Si3P, bezołowiowy)"], ["Wykończenia / Finishes", "SB · PB · AB · MB · WH · NK"], ["Powłoki / Coatings", "MB · WH: PVD / e-coat · NK: galw."], ["Tolerancje / Tolerances", "ISO 2768-mK"]], "DIAL-E": [["Warianty / Variants", "Ø34 · S50 / S55"], ["Masa (szac.) / Weight (est.)", "≈ 68 g"], ["Stop / Alloy", "CW724R (CuZn21Si3P, bezołowiowy)"], ["Wykończenia / Finishes", "SB · PB · AB · MB · WH · NK"], ["Powłoki / Coatings", "MB · WH: PVD / e-coat · NK: galw."], ["Tolerancje / Tolerances", "ISO 2768-mK"]], "PORT-M": [["Warianty / Variants",
+@ 8349 8496 62
+ "PORT-E": [["Warianty / Variants", "F · Schuko · E · PL/FR"],
+@ 8529 8544 11
+ "≈ 19 g"],
+@ 8763 8816 761
+ "FIELD-M": [["Warianty / Variants", "21×34 · 34×55 · 55×89"], ["Grubość / Thickness", "1,8 mm (34×55)"], ["Masa (szac.) / Weight (est.)", "≈ 8–75 g"], ["Stop / Alloy", "CW724R (CuZn21Si3P, bezołowiowy)"], ["Wykończenia / Finishes", "SB · PB · AB · MB · WH · NK"], ["Powłoki / Coatings", "MB · WH: PVD / e-coat · NK: galw."], ["Tolerancje / Tolerances", "ISO 2768-mK"]], "FIELD-E": [["Warianty / Variants", "1-krotna · 2-krotna · 3-krotna"], ["Masa (szac.) / Weight (est.)", "≈ 76–196 g"], ["Stop / Alloy", "CW724R (CuZn21Si3P, bezołowiowy)"], ["Wykończenia / Finishes", "SB · PB · AB · MB · WH · NK"], ["Powłoki / Coatings", "MB · WH: PVD / e-coat · NK: galw."], ["Tolerancje / Tolerances", "ISO 2768-mK"]], "STUD": [["Warianty / Variants", "Ø21 · Ø34 · Ø55"],
+@ 8840 8857 17
+ "20,5–37,5 mm"],
+@ 8874 8880 5
+ "Ø8,
+@ 8887 8933 0
+
+@ 8966 8981 15
+ "≈ 30–258 g"],
+@ 9198 9444 55
+ "STUD-E": [["Warianty / Variants", "Ø34 · S50 / S55"],
+@ 9477 9492 11
+ "≈ 68 g"],
+@ 9709 9766 84
+ "SPAR": [["Warianty / Variants", "A · 96 · B · 128 · C · 160 · D · 224 · E · 320"],
+@ 9790 9892 48
+ "42 mm"], ["Pręt / Rod", "Ø12.0 mm (C · 160)"],
+@ 9925 9940 16
+ "≈ 163–427 g"],
+@ 10157 10190 35
+ "GATE-M": [["Warianty / Variants",
+@ 10238 10344 46
+ "35–37 mm"], ["Pręt / Rod", "Ø10 mm (L 89)"],
+@ 10377 10392 15
+ "≈ 64–173 g"],
+@ 10609 10712 106
+ "GATE-D": [["Warianty / Variants", "DT1 · drzwi 35–45 mm · DT2 · drzwi 40–60 mm · DT3 · drzwi 60–80 mm"],
+@ 10745 10760 1107
+ "≈ 291 g"], ["Stop / Alloy", "CW724R (CuZn21Si3P, bezołowiowy)"], ["Wykończenia / Finishes", "SB · PB · AB · MB · WH · NK"], ["Powłoki / Coatings", "MB · WH · NK: powłoka / coating"], ["Tolerancje / Tolerances", "ISO 2768-mK"]], "SASH-M": [["Warianty / Variants", "L 55 · L 89 · L 144"], ["Wysięg / Projection", "35–37 mm"], ["Pręt / Rod", "Ø10 mm (L 89)"], ["Masa (szac.) / Weight (est.)", "≈ 64–174 g"], ["Stop / Alloy", "CW724R (CuZn21Si3P, bezołowiowy)"], ["Wykończenia / Finishes", "SB · PB · AB · MB · WH · NK"], ["Powłoki / Coatings", "MB · WH · NK: powłoka / coating"], ["Tolerancje / Tolerances", "ISO 2768-mK"]], "SASH-O": [["Warianty / Variants", "□7×35 · □7×35 · L (zamykana) · □7×40 · □7×40 · L (zamykana)"], ["Masa (szac.) / Weight (est.)", "≈ 198–208 g"], ["Stop / Alloy", "CW724R (CuZn21Si3P, bezołowiowy)"], ["Wykończenia / Finishes", "SB · PB · AB · MB · WH · NK"], ["Powłoki / Coatings", "MB · WH · NK: powłoka / coating"], ["Tolerancje / Tolerances", "ISO 2768-mK"]], "PLATE-E": [["Warianty / Variants", "1-krotna · 2-krotna · 3-krotna"], ["Masa (szac.) / Weight (est.)", "≈ 67–173 g"],
+@ 53035 53056 21
+var a=window.NF_DIM={
+@ 53703 53707 19
+10],zT:[7,7,7,7,8]}
+@ 53794 53807 13
+d:[13,21,34]}
+@ 53815 53849 95
+d:[19,31,50]},SPAR:{ctc:[96,128,160,224,320],stem:10,diaT:[10,10,10,12,12]},STUD:{d:[21,34,55]}
+@ 53917 53917 79
+;Object.assign(a,{AXIS:{len:[55,89,144],dia:[7,8,10],rose:[28,32,38],flutes:12}
+@ 53918 53935 383
+VANE:{len:[55,89,144],dia:[7,8,10],rose:[28,32,38]},DIAL:{d:[34,55,89]},PORT:{d:[34,55,89]},TILE:{d:[25,41,66]},GATE:{len:[55,89,144],dia:[7,8,9],rose:[28,32,36]},SASH:{len:[55,89,144],dia:[7,8,9],rose:[28,32,36]},FIELD:{w:[21,34,55],h:[34,55,89],t:1.8},DRUM:{d:[34,55,89],flutes:72}}),(window.NF_CATALOG&&NF_CATALOG.models||[]).forEach((function(e){e.dim&&(a[e.code]=Object.assign({
+@ 53937 53954 153
+a[e.code]||{},e.dim))}));var t={};(window.NF_CATALOG&&NF_CATALOG.models||[]).forEach((function(e){t[e.code]=e}));var n=null,r=null,o={},i=[],s=!1,l=null,
+@ 54111 54129 18
+u=2,f=new WeakSet,
+@ 54186 54222 36
+window[e]&&(window[e]=X(window[e]))}
+@ 54225 54251 26
+window.NF3D=X((function(){
+@ 54305 54363 58
+var h=document.createElement("style");h.textContent=".nfp>
+@ 54783 54906 123
+(document.head||document.documentElement).appendChild(h),document.body?U():document.addEventListener("DOMContentLoaded",U),
+@ 54922 54933 42
+state:function(e){return m[e]},interior:H,
+@ 54951 54953 2
+a,
+@ 54956 54977 21
+return N(G(e,a||1200,
+@ 54988 55003 15
+build:O,shot:G,
+@ 55036 55038 2
+r}
+@ 55056 55059 3
+a){
+@ 55070 55077 7
+M(e,a)}
+@ 55078 55084 6
+DIM:a}
+@ 55086 55099 13
+function v(a,
+@ 55101 55103 2
+n,
+@ 55149 55152 3
+n),
+@ 55284 55293 9
+a.add(s)}
+@ 55306 55392 86
+if(n)return n;var a=document.createElement("canvas");(n=new e.WebGLRenderer({canvas:a,
+@ 55472 55738 266
+n.toneMapping=e.ACESFilmicToneMapping,n.toneMappingExposure=1.02,n.physicallyCorrectLights=!0,n.shadowMap.enabled=!0,n.shadowMap.type=e.PCFShadowMap;var t=new e.PMREMGenerator(n);return r=t.fromScene(function(){var a=new e.Scene;a.background=new e.Color(262915),v(a,
+@ 55761 55765 4
+v(a,
+@ 55794 55798 4
+v(a,
+@ 55826 55830 4
+v(a,
+@ 55859 55863 4
+v(a,
+@ 55889 55893 4
+v(a,
+@ 56049 56060 11
+a.add(t),a}
+@ 56077 56097 20
+t.dispose(),l=w(512,
+@ 56112 56114 2
+a,
+@ 56154 56156 2
+a,
+@ 56159 56183 24
+for(var n=0;n<1400;n++){
+@ 56253 56280 27
+e.fillRect(Math.random()*a,
+@ 56324 56332 8
+c=w(128,
+@ 56348 56350 2
+a,
+@ 56387 56387 405
+a,t);for(var n=0;n<a;n+=32){var r=e.createLinearGradient(n-4,0,n+4,0);r.addColorStop(0,"#fff"),r.addColorStop(.5,"#000"),r.addColorStop(1,"#fff"),e.fillStyle=r,e.fillRect(n-4,0,8,t),e.fillRect(n-4+a,0,8,t);var o=e.createLinearGradient(0,n-4,0,n+4);o.addColorStop(0,"#fff"),o.addColorStop(.5,"#000"),o.addColorStop(1,"#fff"),e.fillStyle=o,e.fillRect(0,n-4,a,8),e.fillRect(0,n-4+t,a,8)}})),n}function w(a,t,
+@ 56389 56584 0
+
+@ 56626 56636 10
+o.width=a,
+@ 56647 56670 23
+n(o.getContext("2d"),a,
+@ 56790 56803 13
+function M(a,
+@ 56806 56823 17
+var n=d[a]||d.SB,
+@ 56853 56909 56
+color:n[0],roughness:n[1],metalness:n[2],clearcoat:n[3],
+@ 56931 56940 9
+envMap:r,
+@ 57054 57083 29
+n[1]+.1)):n[4]&&(o.bumpMap=l,
+@ 57102 57124 22
+"AB"===a&&(o.sheen=0),
+@ 57126 57140 14
+function y(a){
+@ 57254 57258 4
+[a];
+@ 57276 57310 34
+var n=new e.MeshPhysicalMaterial({
+@ 57389 57398 9
+envMap:r,
+@ 57418 57542 124
+return n.color.convertSRGBToLinear(),t[4]&&(n.emissive=new e.Color(t[4]),n.emissiveIntensity=.6),"ST"===a&&(n.bumpMap=w(256,
+@ 57558 57560 2
+a,
+@ 57597 57599 2
+a,
+@ 57602 57644 42
+for(var n=0;n<900;n++)e.fillStyle="rgba(0,
+@ 57686 57708 22
+e.arc(Math.random()*a,
+@ 57759 57791 32
+n.bumpScale=.01),n}function S(a,
+@ 57794 57813 19
+var n=new e.Mesh(a,
+@ 57816 57888 72
+return n.castShadow=!0,n.receiveShadow=!0,n.userData.p=u,n}function g(a,
+@ 57891 57968 77
+var n=new e.LatheGeometry(a.map((function(a){return new e.Vector2(a[0],a[1])}
+@ 57978 58021 43
+return n.rotateX(Math.PI/2),n}function b(a,
+@ 58023 58025 2
+n,
+@ 58045 58055 10
+n/2.2,a/4,
+@ 58060 58099 39
+var s=new e.ExtrudeGeometry(function(a,
+@ 58101 58104 3
+n){
+@ 58122 58129 7
+o=-a/2,
+@ 58136 58164 28
+return n=Math.min(n,a/2-.01,
+@ 58173 58186 13
+r.moveTo(o+n,
+@ 58189 58204 15
+r.lineTo(o+a-n,
+@ 58207 58230 23
+r.quadraticCurveTo(o+a,
+@ 58232 58241 67
+o+a,i+n),r.lineTo(o+a,i+t-n),r.quadraticCurveTo(o+a,i+t,o+a-n,i+t),
+@ 58254 58312 0
+
+@ 58344 58351 7
+i+t-n),
+@ 58362 58367 5
+i+n),
+@ 58390 58394 4
+o+n,
+@ 58399 58406 7
+(a-2*o,
+@ 58451 58458 7
+n-2*o),
+@ 58573 58586 13
+function E(a,
+@ 58588 58590 2
+n,
+@ 58593 58623 30
+var o=new e.ExtrudeGeometry(a,
+@ 58624 58693 69
+depth:t-2*(n||0),bevelEnabled:!!n,bevelThickness:n||0,bevelSize:n||0,
+@ 58767 58779 12
+-t/2+(n||0),
+@ 58856 58869 13
+function T(a,
+@ 58871 58873 2
+n,
+@ 58931 58955 24
+var l=s/i*Math.PI*2,c=a;
+@ 58961 59029 68
+var d=Math.sin(t*l/2);c=a-n*d*d}var u=Math.cos(l)*c,f=Math.sin(l)*c;
+@ 59042 59059 17
+f):o.moveTo(u,f)}
+@ 59068 59083 15
+function P(e,a,
+@ 59085 59102 17
+n){e.add(S(g([[0,
+@ 59131 59136 5
+n-1],
+@ 59143 59146 3
+n],
+@ 59149 59153 4
+n]],
+@ 59158 59175 17
+a))}function k(a,
+@ 59177 59179 2
+n,
+@ 59210 59220 10
+n/2.2,a/4,
+@ 59244 59260 16
+s=a/2-r,l=t/2-r;
+@ 59272 59276 4
+-l),
+@ 59287 59291 4
+-l),
+@ 59302 59305 3
+l),
+@ 59317 59320 3
+l),
+@ 59332 59366 34
+-l);var c=new e.ExtrudeGeometry(i,
+@ 59386 59393 7
+n-2*r),
+@ 59472 59493 21
+return c.translate(0,
+@ 59505 59520 15
+c}function I(a,
+@ 59523 59547 24
+var n=new e.Shape,r=a/2;
+@ 59573 59587 14
+n.moveTo(-r+t,
+@ 59591 59604 13
+n.lineTo(r-t,
+@ 59608 59619 11
+n.lineTo(r,
+@ 59625 59636 11
+n.lineTo(r,
+@ 59641 59654 13
+n.lineTo(r-t,
+@ 59657 59671 14
+n.lineTo(-r+t,
+@ 59674 59686 12
+n.lineTo(-r,
+@ 59691 59703 12
+n.lineTo(-r,
+@ 59709 59723 14
+n.lineTo(-r+t,
+@ 59727 59742 15
+n}function R(a,
+@ 59744 59746 2
+n,
+@ 59754 59754 2
+l,
+@ 59756 59761 3
+d){
+@ 59767 59821 54
+f=Math.max(.5,l-s);c?((u=new e.CylinderGeometry(1.2*i,
+@ 59827 59829 2
+f,
+@ 59890 59904 14
+u.translate(n,
+@ 59906 59948 42
+s+f/2),u.computeVertexNormals()):(u=g([[0,
+@ 59951 59965 14
+[o*(d?1.12:1),
+@ 59968 59994 26
+[(o+i)/2*(d?.86:1),s+f/2],
+@ 59997 60000 3
+l],
+@ 60003 60024 21
+l]],64)).translate(n,
+@ 60029 60039 10
+a.add(S(u,
+@ 60043 60056 17
+function z(e,a,t,
+@ 60058 60062 0
+
+@ 60069 60106 37
+return"NP"===i?0:((s="SP"===i?k(.9*r,
+@ 60131 60140 9
+0):g([[0,
+@ 60209 60211 2
+n,
+@ 60214 60228 14
+e.add(S(s,a)),
+@ 60237 60331 369
+function A(a,t){var n=new e.LatheGeometry(a.map((function(a){return new e.Vector2(Math.max(0,a[1]),a[0])})),t||64);return n.rotateZ(-Math.PI/2),n}function C(e,a,t,n,r){var o=0;return a.forEach((function(a){if(!(e<a[0]-r||e>a[1]+r))for(var i=Math.max(1,Math.round((a[1]-a[0])/t)),s=(a[1]-a[0])/i,l=0;l<=i;l++){var c=Math.abs(e-(a[0]+l*s));c<r&&(o=Math.max(o,n*(1-c/r)))}
+@ 60332 60384 3146
+)),o}function D(a,t,n,r){var o=M(a,!0),i=c.clone();return i.needsUpdate=!0,i.wrapS=i.wrapT=e.RepeatWrapping,i.repeat.set(Math.max(1,t/12),Math.max(1,n/12)),o.bumpMap=i,o.bumpScale=.09,o.roughness=Math.min(1,o.roughness+.26),o.color.multiplyScalar(.78),o}function x(a,t,n,r,o,i,s,l,c,d,u){var f,m=s/2,h=null==u?Math.min(.6,.15*m):u;if("lines"===r)return f=E(function(a,t){for(var n=new e.Shape,r=6*t,o=0;o<=r;o++){var i=o/r*Math.PI*2,s=o%6/6,l=a-(s<.34?.15*(1-Math.abs(s-.17)/.17):0),c=Math.cos(i)*l,d=Math.sin(i)*l;o?n.lineTo(c,d):n.moveTo(c,d)}return n}(m,Math.round(Math.PI*s/.6)),i-o,Math.min(.4,h)),f.translate((o+i)/2,l,c),void a.add(S(f,t));if("flutes"===r)return(f=E(T(m,Math.max(10,Math.round(1.6*s)),.07*s),i-o,Math.min(.5,h))).translate((o+i)/2,l,c),void a.add(S(f,t));if("knurl"===r){var v=[o],p=[];return(d||[[o+h,i-h]]).forEach((function(e){p.push(["s",v[v.length-1],e[0]]),p.push(["k",e[0],e[1]]),v.push(e[1])})),p.push(["s",v[v.length-1],i]),void p.forEach((function(e,r){var o=e[1],i=e[2];if(!(i-o<.05))if("k"===e[0]){var d=A([[o,m],[i,m]],72);d.translate(0,l,c),a.add(S(d,D(n,Math.PI*s,i-o)))}else{var u=0===r?h:0,f=r===p.length-1?h:0,v=A([[o,0],[o,m-u],[o+u,m],[i-f,m],[i,m-f],[i,0]],72);v.translate(0,l,c),a.add(S(v,t))}}))}f=A("grooves"===r?function(e,a,t,n,r,o,i){for(var s=[[e,0],[e,t-i],[e+i,t]],l=Math.min(.42,.432),c=l/2.5,d=e+i+c;d<a-i;d+=c)s.push([d,t-C(d,n,1.8,o,l)]);return s.push([a-i,t],[a,t-i],[a,0]),s}(o,i,m,d||[[o+.2*(i-o),i-.2*(i-o)]],0,Math.min(.32,.06*m),h):[[o,0],[o,m-h],[o+h,m],[i-h,m],[i,m-h],[i,0]],72),f.translate(0,l,c),a.add(S(f,t))}function B(a,t,n,r,o,i,s){var l=o/2,c=Math.max(.5,.018*o);if("knurl"===r){var d=g([[0,i],[l-c,i],[l,i+c],[l,i+.18*s]],128);a.add(S(d,t));var u=g([[l,i+.18*s],[l,i+.78*s]],128);return a.add(S(u,D(n,Math.PI*o,.6*s))),void a.add(S(g([[l,i+.78*s],[l,i+s-1.2*c],[l-1.2*c,i+s],[0,i+s]],128),t))}if("lines"!==r){if("flutes"===r){var f=new e.ExtrudeGeometry(T(l,Math.round(1.3*o),.55),{depth:s-1.2,bevelEnabled:!0,bevelThickness:.6,bevelSize:.55,bevelSegments:4,curveSegments:8});return f.translate(0,0,i),void a.add(S(f,t))}for(var m=[[0,i],[l-c,i],[l,i+c]],h=i+c;h<i+s-c;h+=.15){var v="grooves"===r?C(h,[[i+.25*s,i+.75*s]],1.7,.3,.36):0;m.push([l-v,h])}m.push([l,i+s-c],[l-c,i+s],[0,i+s]),a.add(S(g(m,128),t))}else{var p=g([[0,i],[l-c,i],[l,i+c],[l,i+s-c],[l-c,i+s],[0,i+s]],160);a.add(S(p,L(n,Math.round(Math.PI*o/.8),.25,.75)))}}function L(e,a,t,n){var r=M(e),o=w(1024,256,(function(e,r,o){e.fillStyle="#fff",e.fillRect(0,0,r,o),e.fillStyle="#000";for(var i=Math.round(t*o),s=Math.round(n*o),l=0;l<a;l++)e.fillRect(l*r/a,o-s,Math.max(2,r/a*.38),s-i)}));return r.bumpMap=o,r.bumpScale=.06,r}function O(n){var o=t[n.form]||null,i=o?o.texture:"smooth",s=new e.Group,l=n.finish||"SB",c=M(l),d={"AXIS-M":"AXIS","VANE-M":"VANE","DIAL-M":"DIAL","PORT-M":"PORT","FIELD-M":"FIELD","GATE-M":"GATE","SASH-M":"SASH","STUD-E":"EDIAL","PLATE-E":"EFRAME","AXIS-D":"DOOR","GATE-D":"DOOR","VANE-O":"WIN","SASH-O":"WIN","DIAL-E":"EDIAL","PORT-E":"EPORT","FIELD-E":"EFRAME"}[n.form]||n.form,f=null==n.si?1:n.si,m=a[d]||{},h=!!o&&"Q"===o.v;function v(e){return Array.isArray(e)?e[Math.min(f,
+@ 60399 60529 130
+var p=n.ctc||v(m.ctc)||160,w=n.ending||"FL",A=/Q$/.test(d)||"FRAME"===d,D=n.ctc||(Array.isArray(m.ctc)?v(m.ctc):m.ctc)||160,O=[96,
+@ 60541 60586 45
+320].indexOf(D);O<0&&(O=2),(m=Object.assign({
+@ 60588 60811 258
+m)).diaT&&(m.dia=m.diaT[O],m.proj=30+m.dia),m.wT&&(m.w=m.z=m.wT[O],m.proj=30+m.w),m.sT&&(m.s=m.sT[O],m.proj=30+(m.zT?m.zT[O]:m.s),m.zT&&(m.z=m.zT[O]));var G=n.washer||(A?"SP":"RP"),N="Q"===(n.stem||(A?"Q":"R")),F="WD"===n.leg;function j(e,a){u=0;var t=z(s,c,
+@ 60842 60855 13
+G);u=1,R(s,c,
+@ 60859 60888 29
+F?.3*e:.115*e,F?.21*e:.115*e,
+@ 60890 60969 79
+a+.5,N,!F),u=2}function V(e,a){[-p/2,p/2].forEach((function(e){u=0;var t=z(s,c,
+@ 60980 60993 13
+G);u=1,R(s,c,
+@ 60997 61029 62
+F?5:(m.stem||7)/2,(m.stem||7)/2,t,a,N,!1)})),u=2}function Q(a,
+@ 61033 61061 37
+r){var o=E(r?T(t/2,r,.07*t):T(t/2,0),
+@ 61063 61131 29
+"RD"===w?0:.8);o.translate(0,
+@ 61133 61172 39
+n-t/2),s.add(S(o,c)),"RD"!==w||r||(u=3,
+@ 61176 61231 55
+1].forEach((function(r){var o=new e.SphereGeometry(t/2,
+@ 61262 61304 42
+o.rotateZ(-r*Math.PI/2),o.translate(r*a/2,
+@ 61306 61327 21
+n-t/2),s.add(S(o,c))}
+@ 61330 61504 655
+u=2),V(0,n-t/2+.5)}switch(u=2,d){case"ORB":var H=(Fe=v(m.d))/2,X=.19*Fe+.44*Fe;j(Fe,ze=.19*Fe+1);var q="FL"===w?Math.asin(.49):0,W=Math.PI-Math.acos(.88);if("lines"===i)($e=new e.SphereGeometry(H,128,64,0,2*Math.PI,q,W-q)).rotateX(Math.PI/2),$e.translate(0,0,X),s.add(S($e,L(l,Math.round(Math.PI*Fe/.8),1-(Math.PI/2+.41-q)/(W-q),1-(Math.PI/2-.41-q)/(W-q))));else if("grooves"===i){for(var Z=[],U=0;U<=360;U++){var K=Math.PI-W+(W-q)*U/360,Y=C(de=Math.PI-K,[[Math.PI/2-.32,Math.PI/2+.32]],.13,.012*H,.03);Z.push([(H-Y)*Math.sin(K),X-(H-Y)*Math.cos(K)])}Z.unshift([0,Z[0][1]]),Z.push([0,Z[Z.length-1][1]]),s.add(S(g(Z,160),c))}else($e=new e.SphereGeometry(H,
+@ 61522 61567 42
+q,W-q)).rotateX(Math.PI/2),$e.translate(0,
+@ 61569 61678 113
+X),s.add(S($e,c));if("FL"===w){u=3;var _=.49*H,$=X+H*Math.cos(q);s.add(S(g([[0,$-.3],[_,$-.3],[_,$],[_-.2,$+.15],
+@ 61681 61689 8
+$+.15]],
+@ 61693 61701 8
+c)),u=2}
+@ 61707 61801 95
+case"ORBQ":j(Fe=(de=v(m.d))/.62,ze=.19*Fe+1),s.add(S(k(de,de,de,"CH"===w?.08*de:.22,ze-.5),c));
+@ 61807 61976 180
+case"DISC":var J=.05*(Fe=v(m.d)),ee=6;H=Fe/2,j(Fe,ie=.29*Fe),s.add(S(g([[0,ie],[.62*H,ie],[.93*H,ie+.18*ee],[H,ie+.45*ee],[H,ie+ee-1.1],[H-1.1,ie+ee],[H-J,ie+ee],[H-J-.4,ie+ee-.9],
+@ 61979 61988 11
+ie+ee-.9]],
+@ 61993 62123 172
+c)),u=3;var ae="NO"===n.insert?null:y(n.insert||"BR"),te=H-J-.6,ne=ie+ee-.5,re=.04*Fe,oe="RD"===w?g([[0,ie+ee-.9],[te,ie+ee-.9],[te,ne],[.7*te,ne+.55*re],[.35*te,ne+.9*re],
+@ 62126 62166 80
+ne+re]],128):"NO"===n.insert?g([[0,ie+ee-.9],[H-J+.05,ie+ee-.9],[H-J+.05,ie+ee],
+@ 62169 62178 71
+ie+ee]],128):g([[0,ie+ee-.9],[te,ie+ee-.9],[te,ie+ee-.2],[0,ie+ee-.2]],
+@ 62183 62221 40
+s.add(S(oe,ae||M("PB"===l?"SB":l))),u=2;
+@ 62227 62418 252
+case"DISCQ":var ie,se=v(m.d);J=.05*(Fe=se/.9),ee=6,j(Fe,ie=.29*Fe),s.add(S(k(se,se,ee,"CH"===w?.3*ee:.22,ie),c)),u=3,ae="NO"===n.insert?null:y(n.insert||"BR");var le=se-2*J-("CH"===w?.6*ee:0)+("NO"===n.insert?J:0);s.add(S(k(le,le,"NO"===n.insert?.95:1,
+@ 62422 62459 61
+ie+ee-("NO"===n.insert?.9:.88)),ae||M("PB"===l?"SB":l))),u=2;
+@ 62465 62526 445
+case"RAIL":if("grooves"===i||"knurl"===i||"lines"===i){var ce=p+2*Math.max(14,Math.round(.14*p));x(s,c,l,i,-ce/2,ce/2,m.dia,0,m.proj-m.dia/2,[[-p/2+6,p/2-6]],"RD"===w?0:null),"RD"===w&&(u=3,[-1,1].forEach((function(a){var t=new e.SphereGeometry(m.dia/2,40,20,0,2*Math.PI,0,Math.PI/2);t.rotateZ(-a*Math.PI/2),t.translate(a*ce/2,0,m.proj-m.dia/2),s.add(S(t,c))})),u=2),V(0,m.proj-m.dia/2+.5)}else Q(p+2*Math.max(14,Math.round(.14*p)),m.dia,m.proj,
+@ 62535 62629 396
+case"RAILQ":ce=p+2*Math.max(14,Math.round(.14*p));var de=m.s,ue="CH"===w?1:.2,fe=E("lines"===i?function(a,t){for(var n=new e.Shape,r=a/2,o=[[-r,-r],[r,-r],[r,r]],i=a/(2*t+1),s=0;s<t;s++){var l=r-i*(2*s+1),c=l-i;o.push([l,r],[l,r-.15],[c,r-.15],[c,r])}return o.push([-r,r]),o.forEach((function(e,a){a?n.lineTo(e[0],e[1]):n.moveTo(e[0],e[1])})),n}(de-2*ue,Math.max(3,Math.round(de/1.2))):I(de-2*ue,
+@ 62633 62655 24
+ce,ue,1);fe.translate(0,
+@ 62657 62703 48
+m.proj-de/2),s.add(S(fe,c)),V(0,m.proj-de/2+.5);
+@ 62709 62796 87
+case"STAVE":Q((p=n.ctc||m.ctc)+2*Math.max(14,Math.round(.14*p)),m.dia,m.proj,m.flutes);
+@ 62802 62931 141
+case"ARC":case"FRAME":var me=m.proj,he="ARC"===d?m.r:2.6,ve="ARC"===d?m.dia:m.w;u=0;var pe=0;if([-(Ie=p/2),Ie].forEach((function(e){pe=z(s,c,
+@ 62942 62945 3
+G)}
+@ 62948 63000 461
+u=2,(F||"RD"===w)&&(u=3,[-Ie,Ie].forEach((function(a){var t="ARC"===d?g(F?"RD"===w?[[0,pe],[5.6,pe],[5.6,pe+1.2],[5.1,pe+2.4],[ve/2,pe+8],[0,pe+8]]:[[0,pe],[5.1,pe],[ve/2,pe+8],[0,pe+8]]:[[0,pe],[5.6,pe],[5.6,pe+1.2],[ve/2,pe+3.2],[0,pe+3.2]],48):new e.CylinderGeometry(.71*ve,.71*(ve+2),8,4,1);"ARC"!==d&&(t.rotateY(Math.PI/4),t.rotateX(Math.PI/2),t.translate(0,0,pe+4)),t.translate(a,0,0),s.add(S(t,c))})),u=2),"ARC"===d){var we=new e.CurvePath,Me=function(a,
+@ 63003 63026 23
+return new e.Vector3(a,
+@ 63032 63362 332
+we.add(new e.LineCurve3(Me(-Ie,pe),Me(-Ie,me-he))),we.add(new e.QuadraticBezierCurve3(Me(-Ie,me-he),Me(-Ie,me),Me(-Ie+he,me))),we.add(new e.LineCurve3(Me(-Ie+he,me),Me(Ie-he,me))),we.add(new e.QuadraticBezierCurve3(Me(Ie-he,me),Me(Ie,me),Me(Ie,me-he))),we.add(new e.LineCurve3(Me(Ie,me-he),Me(Ie,pe))),s.add(S(new e.TubeGeometry(we,
+@ 63366 63371 5
+ve/2,
+@ 63378 63409 31
+c))}else s.add(S(k(p+ve,m.z,ve,
+@ 63413 63478 68
+me-ve),c)),[-Ie,Ie].forEach((function(e){var a=k(ve,m.z,me-ve+.5-pe,
+@ 63482 63499 18
+pe);a.translate(e,
+@ 63504 63518 14
+s.add(S(a,c))}
+@ 63527 63642 115
+case"EDGE":case"COVE":ce=v(m.len);var ye=new e.Shape;if("EDGE"===d){var Se=m.h,ge=m.t,be=m.lip;m.gap,ye.moveTo(-Se,
+@ 63645 63657 12
+ye.lineTo(0,
+@ 63660 63744 84
+ye.lineTo(0,be),ye.lineTo(-ge,be),ye.lineTo(-ge,ge),ye.lineTo(-Se,ge),ye.lineTo(-Se,
+@ 63752 63789 37
+var Ee=m.r,Te=m.t;ye.moveTo(-m.plate,
+@ 63792 63804 12
+ye.lineTo(0,
+@ 63807 63825 18
+ye.absarc(0,Ee,Ee,
+@ 63852 63873 21
+ye.absarc(0,Ee,Ee-Te,
+@ 63905 63963 58
+ye.lineTo(0,Te),ye.lineTo(-m.plate,Te),ye.lineTo(-m.plate,
+@ 63966 64000 254
+fe=E(ye,ce,.5),s.add(S(fe,c)),"COVE"===d&&"RD"===w&&(u=3,[-1,1].forEach((function(a){var t=new e.SphereGeometry(m.r,40,20,0,Math.PI,0,Math.PI);t.rotateY(a>0?0:Math.PI),t.scale(.35,1,1),t.translate(a*ce/2,0,m.r);var n=t;n.rotateX(0),s.add(S(n,c))})),u=2);
+@ 64006 64237 93
+case"DRUM":var Pe=v(m.d);j(Pe,ze=.25*Pe),(fe=new e.ExtrudeGeometry(T(Pe/2,Math.round(1.3*Pe),
+@ 64242 64256 17
+depth:.44*Pe-1.2,
+@ 64353 64372 370
+ze),s.add(S(fe,c));var ke=n.insert&&"NO"!==n.insert?y(n.insert)||M("PB"===l?"SB":l):null;"RD"===w?(u=3,re=g([[0,ze+.44*Pe-.6],[Pe/2-1.2,ze+.44*Pe-.6],[.3*Pe,ze+.44*Pe+.03*Pe],[0,ze+.44*Pe+.05*Pe]],96),s.add(S(re,ke||c)),u=2):ke&&(u=3,te=.3*Pe,ne=ze+.44*Pe,s.add(S(g([[0,ne-.9],[te,ne-.9],[te,ne+("BR"===n.insert?.25:.05)],[0,ne+("BR"===n.insert?.25:.05)]],96),ke)),u=2);
+@ 64378 64433 613
+case"STUD":var Ie=.5*(Fe=v(m.d));j(Fe,ze=10),B(s,c,l,"knurl",Fe,ze,Ie);var Re=Math.max(1,.06*Fe);s.add(S(g([[0,ze-.05],[Fe/2-Re,ze-.05],[Fe/2+.02,ze+Re],[Fe/2+.02,ze+Re+.4],[0,ze+Re+.4]],128),c)),"NO"!==n.insert&&"RD"!==w&&(u=3,te=.3*Fe,s.add(S(g([[0,ze+Ie-.9],[te,ze+Ie-.9],[te,ze+Ie+.05],[0,ze+Ie+.05]],96),y(n.insert||"GL")||M("PB"===l?"SB":l))),u=2),"RD"===w&&(u=3,s.add(S(g([[0,ze+Ie-.3],[Fe/2-1,ze+Ie-.3],[.3*Fe,ze+Ie+.03*Fe],[0,ze+Ie+.05*Fe]],96),"NO"!==n.insert?y(n.insert||"GL")||M("PB"===l?"SB":l):c)),u=2);break;case"SPAR":ce=p+2*Math.max(14,Math.round(.14*p)),Y=m.dia||10,x(s,c,l,"knurl",-ce/2,ce/2,Y,
+@ 64435 65658 123
+m.proj-Y/2,[[-p/2+7,p/2-7]],"RD"===w?0:.5),"RD"===w&&(u=3,[-1,1].forEach((function(a){var t=new e.SphereGeometry(Y/2,40,20,
+@ 65683 65756 98
+t.rotateZ(-a*Math.PI/2),t.translate(a*ce/2,0,m.proj-Y/2),s.add(S(t,c))})),u=2),V(0,m.proj-Y/2+.5);
+@ 65762 65873 144
+case"TILE":var ze=.25*(Fe=(de=v(m.d))/.74);Ie=.47*de,u=0,pe=z(s,c,0,0,.42*Fe,1.4,n.washer||"SP"),u=1,R(s,c,0,0,F?.3*Fe:.115*Fe,F?.21*Fe:.115*Fe,
+@ 65876 65876 905
+ze+.5,"Q"===(n.stem||"Q"),!1),u=2,s.add(S(k(.84*de,.84*de,.42*Ie,.3,ze),c)),s.add(S(k(de,de,.58*Ie,.16*Ie,ze+.42*Ie-.05),c));break;case"BEAM":if("knurl"===i){ce=(p=n.ctc||m.ctc)+2*Math.max(14,Math.round(.14*p)),Y=m.s,x(s,c,l,"knurl",-ce/2,ce/2,Y,0,m.proj-Y/2,[[-p/2+6,p/2-6]]),V(0,m.proj-Y/2+.5);break}p=n.ctc||m.ctc;var Ae=m.z||m.s;fe=E(function(a,t,n){var r=new e.Shape,o=a/2,i=t/2;return n=Math.min(n,.4*Math.min(o,i)),r.moveTo(-o+n,-i),r.lineTo(o-n,-i),r.lineTo(o,-i+n),r.lineTo(o,i-n),r.lineTo(o-n,i),r.lineTo(-o+n,i),r.lineTo(-o,i-n),r.lineTo(-o,-i+n),r.lineTo(-o+n,-i),r}(m.s-.6,Ae-.6,.25),p+2*Math.max(14,Math.round(.14*p)),.3,1),fe.translate(0,0,m.proj-Ae/2),s.add(S(fe,c)),V(0,m.proj-Ae/2+.5);break;case"AXIS":case"VANE":case"GATE":case"SASH":ce=v(m.len),Y=v(m.dia)||m.s||8,Ee=v(m.rose)||(Array.isArray(m.rose)?m.rose[0]:m.rose)||32;var Ce="AXIS"===d||"GATE"===d,De=0;u=0,"NP"!==n.washer&&P(s,c,
