@@ -1,0 +1,387 @@
+@ 147370 147379 1293
+ f.title }}</div>
+<div style="font-size:12px;color:#5A5448;margin-top:3px;line-height:1.5;font-weight:300">{{ f.desc }}</div>
+</div>
+</div>
+</sc-for>
+</div>
+<div class="nf-flver" style="display:flex;align-items:baseline;gap:14px;margin-top:34px;border-bottom:1px solid #E2DDD2;padding-bottom:10px;flex-wrap:wrap"><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.22em;color:#A8895A;text-transform:uppercase">{{ flVer.angular }}</span><span style="font-size:12px;color:#5A5448;font-weight:300">{{ flVer.angularSub }}</span></div>
+<div class="nf-flgrid" style="display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:18px">
+<sc-for list="{{ formsAngular }}" as="f" hint-placeholder-count="5">
+<div sc-camel-on-click="{{ f.onClick }}" style="background:linear-gradient(180deg,#EEEBE5 0%,#E3DFD6 100%);border:1px solid #DDD7CB;border-radius:3px;overflow:hidden;cursor:pointer;transition:transform .3s" style-hover="transform:translateY(-3px)">
+<div style="height:150px;display:flex;align-items:center;justify-content:center" sc-camel-dangerously-set-inner-h-t-m-l="{{ f.glyph }}"></div>
+<div style="padding:14px 16px 16px;background:#F4F2ED;border-top:1px solid #E2DDD2">
+<div style="font-family:'Cormorant Garamond',serif;font-size:19px">{{ f.title }
+@ 171640 171640 141
+" title="{{ o.title }}" data-cfg-key="{{ g.key }}" data-cfg-code="{{ o.code }}" aria-disabled="{{ o.disabled }}" aria-pressed="{{ o.active }}
+@ 171681 171681 128
+
+<div class="nf-cfg-note" style="font-size:11px;color:#8a8170;margin-top:7px;font-weight:300;line-height:1.5">{{ g.note }}</div>
+@ 171851 171875 47
+
+<div class="nf-cfg-preview" style="width:100%;
+@ 172804 172845 56
+
+<div class="nf-sku" style="font-family:'IBM Plex Mono',
+@ 172855 172870 15
+font-size:15px;
+@ 181823 181832 11
+stem:"SLR",
+@ 181868 181878 10
+mount:"C",
+@ 183483 183533 50
+a){const t=this.metalSpec(a);e.color.setHex(t[0]),
+@ 183563 183614 51
+e.roughness=t[1],e.metalness=t[2],e.clearcoat=t[3],
+@ 183763 183772 9
+const a={
+@ 183966 184075 109
+if(!a)return null;const t=document.createElement("canvas");t.width=8,t.height=256;const i=t.getContext("2d"),
+@ 184111 184128 17
+if(a.forEach((e=>
+@ 184326 184361 35
+const n=new THREE.CanvasTexture(t);
+@ 184436 184448 12
+a){const t={
+@ 184573 184588 15
+[a]||[16777215,
+@ 184606 184645 39
+i=this.coreTex(a);e.color.setHex(t[0]),
+@ 184675 184709 34
+e.roughness=t[1],e.metalness=t[2],
+@ 184734 184848 114
+e.emissive.setHex(t[4]),e.emissiveMap="AM"===a?i:null,e.emissiveIntensity="AM"===a?.42:0,e.clearcoat="ST"===a?0:1,
+@ 185022 185071 49
+const a=e.clientWidth||520,t=e.clientHeight||520,
+@ 185122 185126 4
+a/t,
+@ 185239 185254 15
+n.setSize(a,t),
+@ 185572 185572 2
+a,
+@ 185574 185576 0
+
+@ 185634 185637 3
+a),
+@ 185666 185709 43
+color:new THREE.Color(t).multiplyScalar(i),
+@ 186598 186602 4
+a)=>
+@ 186624 186638 14
+a*w),g=(e,a)=>
+@ 186639 186673 34
+const t=new THREE.LatheGeometry(e,
+@ 186678 186700 22
+i=new THREE.Mesh(t,a);
+@ 186719 186722 3
+f={
+@ 186762 186777 36
+b="WD"===(u.stem||"SLR").slice(0,2),
+@ 186835 186839 4
+a)=>
+@ 186840 186852 12
+const t=e/2;
+@ 186902 186925 23
+t*("DISC"===a?.5:.56)),
+@ 186993 187068 75
+const n="ORB"===a?.15*e+3:.2*e+5,r=b?.32*t:Math.max(2.6,.15*t),s=b?.22*t:r;
+@ 187093 187103 10
+i+n+.2*t),
+@ 187107 187122 15
+i+n+.2*t)),g(o,
+@ 187145 187167 22
+const e=f,a=e/2,t=M(e,
+@ 187213 187232 19
+n=a-o-Math.max(2.2,
+@ 187262 187314 52
+g([k(0,t),k(a-.8,t),k(a,t+.8),k(a,t+i-o),k(a-o,t+i),
+@ 187318 187323 5
+t+i),
+@ 187327 187334 7
+t+i-r),
+@ 187338 187346 8
+t+i-r)],
+@ 187362 187380 18
+t+i-r)],l=t+i-.35;
+@ 187398 187405 7
+t+i-r),
+@ 187433 187526 93
+for(let a=1;a<=24;a++){const t=a/24*Math.PI/2;s.push(k((n-.25)*Math.cos(t),l+e*Math.sin(t)))}
+@ 187547 187553 6
+T=g(s,
+@ 187596 187635 39
+a=T.geometry.attributes.uv,t=(n-.25)*w;
+@ 187702 187712 10
+a.setXY(i,
+@ 187741 187771 30
+1-o/t))+.01)}a.needsUpdate=!0}
+@ 187791 187809 18
+const e=f/2,a=M(f,
+@ 187822 187835 13
+t=[k(0,a-e)],
+@ 187927 188012 85
+t.push(k(e*Math.cos(n),a+e*r))}z?t.push(k(0,a+e)):t.push(k(e*Math.sqrt(1-i*i),a+e*i),
+@ 188016 188028 12
+a+e*i)),g(t,
+@ 188115 188143 28
+a=e/2;if([-a,a].forEach((e=>
+@ 188144 188155 11
+E&&(g([k(0,
+@ 188227 188251 24
+const t=e+2*Math.max(14,
+@ 188267 188286 19
+[-a,a].forEach((e=>
+@ 188287 188294 7
+g([k(0,
+@ 188408 188424 16
+(t-(z?2*i:0))*w,
+@ 188503 188555 52
+const a=new THREE.Mesh(new THREE.SphereGeometry(i*w,
+@ 188565 188592 27
+a.position.set(e*(t/2-i)*w,
+@ 188599 188608 9
+h.add(a)}
+@ 188627 188646 19
+t="ARC"===y?17:3.5,
+@ 188661 188665 4
+a)=>
+@ 188687 188691 4
+a*w,
+@ 188722 188757 35
+if(n.add(new THREE.LineCurve3(o(-a,
+@ 188760 188825 65
+o(-a,e-t))),n.add(new THREE.QuadraticBezierCurve3(o(-a,e-t),o(-a,
+@ 188828 188835 7
+o(-a+t,
+@ 188840 188874 34
+n.add(new THREE.LineCurve3(o(-a+t,
+@ 188877 188883 6
+o(a-t,
+@ 188888 188932 44
+n.add(new THREE.QuadraticBezierCurve3(o(a-t,
+@ 188935 188939 4
+o(a,
+@ 188942 188993 51
+o(a,e-t))),n.add(new THREE.LineCurve3(o(a,e-t),o(a,
+@ 189078 189166 88
+a=4*w,t=6*w;e.moveTo(-a,-t),e.lineTo(a,-t),e.lineTo(a,t),e.lineTo(-a,t),e.lineTo(-a,-t),
+@ 189284 189297 13
+a=e+120,t=62,
+@ 189302 189349 47
+o=new THREE.Mesh(new THREE.BoxGeometry(a*w,t*w,
+@ 189377 189383 6
+t/2*w,
+@ 189412 189461 49
+const a=new THREE.Mesh(new THREE.BoxGeometry(e*w,
+@ 189472 189497 25
+a.position.set(0,(t+1)*w,
+@ 189503 189512 9
+h.add(a);
+@ 189590 189599 9
+(t-10)*w,
+@ 189618 189667 49
+const a=new THREE.Mesh(new THREE.BoxGeometry(e*w,
+@ 189680 189706 26
+a.position.set(0,(t+.8)*w,
+@ 189712 189721 9
+h.add(a);
+@ 189858 189868 10
+(t-8.4)*w,
+@ 189884 189990 106
+const R=(new THREE.Box3).setFromObject(h),S=R.getCenter(new THREE.Vector3),j=R.getSize(new THREE.Vector3);
+@ 190014 190032 18
+e.position.sub(S)}
+@ 190035 190155 120
+const C=new THREE.Group;C.add(h),i.add(C);const A=.62*Math.max(j.x,j.y,j.z)/Math.sin(THREE.MathUtils.degToRad(13))*1.16;
+@ 190172 190205 33
+Math.sin(.36)*A,Math.cos(.36)*A),
+@ 190221 190238 17
+C.rotation.y=-.5;
+@ 190327 190355 28
+L=x.createRadialGradient(64,
+@ 190370 190387 17
+L.addColorStop(0,
+@ 190407 190424 17
+L.addColorStop(1,
+@ 190441 190455 14
+x.fillStyle=L,
+@ 190479 190549 70
+const B=new THREE.Mesh(new THREE.PlaneGeometry(1.5*j.x+.2,1.5*j.z+.4),
+@ 190641 190699 58
+B.rotation.x=-Math.PI/2,B.position.y=-j.y/2-.002,C.add(B);
+@ 190741 190749 8
+group:C,
+@ 190853 190879 26
+const I=n.domElement,P=a=>
+@ 190900 190963 63
+const t=a.touches?a.touches[0]:a;D.px=t.clientX,D.py=t.clientY,
+@ 191014 191108 94
+const a=e.touches?e.touches[0]:e;C.rotation.y+=.01*(a.clientX-D.px),C.rotation.x=Math.max(-.9,
+@ 191120 191187 67
+C.rotation.x+.006*(a.clientY-D.py))),D.px=a.clientX,D.py=a.clientY}
+@ 191228 191262 34
+I.addEventListener("mousedown",P),
+@ 191338 191372 34
+I.addEventListener("touchstart",P,
+@ 191386 191417 31
+I.addEventListener("touchmove",
+@ 191433 191463 30
+I.addEventListener("touchend",
+@ 191564 191576 12
+const O=()=>
+@ 191577 191625 48
+this._viewer===D&&(D.auto&&(C.rotation.y+=.005),
+@ 191639 191671 32
+D.raf=requestAnimationFrame(O))}
+@ 191672 191676 4
+O()}
+@ 193246 193317 72
+grid:"Kąt prosty. Czyste płaszczyzny, precyzyjne fazy, zero ornamentu."}
+@ 195197 195307 169
+fineLineDesc:"Jedna linia w dwóch wersjach: obłej i kanciastej. Gładkie, bez żadnego wzoru — tylko proporcja, krawędź i lity mosiądz. Te same moduły M4 w obu wersjach.",
+@ 195545 195663 135
+gridDesc:"Kąt prosty jako podpis. Gładkie płaszczyzny, precyzyjne fazy i proporcje rysunku technicznego — bez żadnego wzoru na czole.",
+@ 200268 200439 187
+ ostrej krawędzi i czystej płaszczyzny, na której światło łamie się jak na fasadzie modernistycznego budynku. GRID to jej rysunek przeniesiony w mosiądz — płaszczyzny cięte pod 90°, fazy,
+@ 204209 204277 69
+grid:"The right angle. Clean planes, precise chamfers, no ornament."}
+@ 206173 206275 163
+fineLineDesc:"One line in two versions: rounded and angular. Smooth, with no pattern at all — just proportion, edge and solid brass. The same M4 modules in both.",
+@ 206515 206635 131
+gridDesc:"The right angle as a signature. Smooth planes, precise chamfers and drawing-board proportions — no pattern on the face.",
+@ 211181 211400 226
+ the sharp edge and a clean plane on which light breaks like the façade of a modernist building. GRID is her drawing carried into brass — planes cut at 90°, chamfers that look different at dawn and at dusk. “It’s not ornament,
+@ 213766 213809 43
+const a="radial-gradient(circle at 38% 30%,
+@ 213929 213931 2
+a}
+@ 214061 214063 2
+a}
+@ 215283 215358 75
+const a="square"===this.state.fluting,t=a?"repeating-linear-gradient(90deg,
+@ 215524 215562 38
+a?"repeating-conic-gradient(from 0deg,
+@ 215889 215891 2
+t}
+@ 216024 216026 2
+t}
+@ 216121 216265 144
+const a=window.NF_FIN[e].t,t="radial-gradient(circle at 34% 28%,"+a.wh+" 0%,"+a.hi+" 16%,"+a.lt+" 34%,"+a.md+" 58%,"+a.dk+" 84%,"+a.dp+" 100%)";
+@ 216272 216285 13
+ring:t,dot:t}
+@ 216286 216295 9
+const a={
+@ 217181 217199 18
+return a[e]||a.SB}
+@ 217213 217222 9
+const a={
+@ 217507 217525 215
+return a[e]||a.AM}nf3(e){try{if("undefined"!=typeof window&&window.NF3D){const a=Object.assign({lang:this.state.lang},e);return a.explode&&(a.xp=1),delete a.explode,delete a.annot,window.NF3D(a)}}catch(e){}return""}
+@ 217532 217532 47
+if(e&&/Q$/.test(e.form||""))return this.nf3(e);
+@ 218045 218052 30
+COVE:1,ORBQ:1,DISCQ:1,RAILQ:3}
+@ 219211 219211 1477
+,ORBQ:{pl:"kostka · ORB w wersji kanciastej",en:"cube · ORB, angular version",insert:!1,intro:{pl:"ORB w wersji kanciastej: gładka kostka z litego mosiądzu na tej samej nóżce M4. Płaskie lica, precyzyjne krawędzie, zero wzoru.",en:"ORB in its angular version: a smooth solid-brass cube on the same M4 stem. Flat faces, precise edges, no pattern."},spec:[["Typ / Type",e?"Gałka kostka, lita":"Solid cube knob"],["□ (M·L·XL)","21 · 34 · 55 mm"],["Montaż / Mount","M4"]]},DISCQ:{pl:"kwadratowy dysk · DISC w wersji kanciastej",en:"square disc · DISC, angular version",insert:!0,intro:{pl:"DISC w wersji kanciastej: kwadratowa płytka z cienką obręczą i tym samym wymiennym rdzeniem — bursztyn, szkło, kamień albo mosiądz.",en:"DISC in its angular version: a square plate with a fine rim and the same interchangeable core — amber, glass, stone or brass."},spec:[["Typ / Type",e?"Gałka kwadratowa z rdzeniem":"Square cored knob"],["□ (M·L·XL)","31 · 50 · 80 mm"],["Montaż / Mount","M4"]]},RAILQ:{pl:"uchwyt kwadratowy · RAIL w wersji kanciastej",en:"square bar pull · RAIL, angular version",insert:!1,intro:{pl:"RAIL w wersji kanciastej: pręt o przekroju 7×7 mm z włosową fazą, na tych samych nóżkach i rozstawach CTC.",en:"RAIL in its angular version: a 7×7 mm bar with a hairline chamfer, on the same stems and CTC spacings."},spec:[["Typ / Type",e?"Uchwyt kwadratowy":"Square bar pull"],["CTC","96 · 128 · 160 · 224 · 320 mm"],["Montaż / Mount",e?"śruby do CTC":"screws to CTC"]]}
+@ 225662 225697 58
+pl:"gałka kwadratowa fazowana",en:"chamfered square knob",
+@ 225704 225920 221
+pl:"Dwa kwadratowe stopnie i jedna precyzyjna faza pod 45°. Gładkie płaszczyzny, na których światło łamie się na krawędzi.",en:"Two square tiers and one precise 45° chamfer. Smooth planes where light breaks on the edge."}
+@ 225941 226063 93
+e?"Gałka kwadratowa fazowana":"Chamfered square knob"],["Czoło / Face",e?"gładkie":"smooth"],
+@ 226081 226088 7
+"45°"],
+@ 226132 226168 46
+pl:"uchwyt prostokątny",en:"rectangular pull",
+@ 226175 226355 227
+pl:"Uchwyt o prostokątnym przekroju z gładkim czołem i włosową fazą. Same kąty proste i czyste płaszczyzny.",en:"A rectangular-section pull with a smooth face and a hairline chamfer. Nothing but right angles and clean planes."}
+@ 226376 226409 43
+e?"Uchwyt prostokątny":"Rectangular pull"],
+@ 226480 226545 61
+["Czoło / Face",e?"gładkie, faza 0,3":"smooth, 0.3 chamfer"],
+@ 226563 226612 51
+e?"raster 32 mm · śruby":"32 mm system · screws"]]}
+@ 226699 226956 258
+ kwadratowej rozecie z precyzyjną fazą. Gładka kwadratowa dźwignia z fazowanymi krawędziami. Architektura w skali dłoni.",en:"A lever on a thin square rose with a crisp chamfer. A smooth square arm with chamfered edges. Architecture at the scale of a hand."}
+@ 227273 227297 30
+ z gładką fazowaną dźwignią.",
+@ 227359 227386 31
+ with a smooth chamfered arm."}
+@ 227586 227622 36
+pl:"płyta gładka",en:"smooth panel",
+@ 227629 227779 241
+pl:"Płyta ścienna z jednym wyniesionym, fazowanym polem — język GRID w dużej skali: proporcja i krawędź, bez wzoru.",en:"A wall plate with a single raised, chamfered field — the GRID language at full scale: proportion and edge, no pattern."}
+@ 227800 227833 33
+e?"Płyta gładka":"Smooth panel"],
+@ 227883 227948 64
+["Pole / Field",e?"wyniesione, faza 45°":"raised, 45° chamfer"],
+@ 229359 229388 29
+a="pl"===this.state.lang,t=a,
+@ 229831 229836 5
+a])=>
+@ 229837 229888 51
+const t=n[e],o=i===t||"product"===e&&"product"===i;
+@ 229895 229903 8
+label:a,
+@ 229936 229947 11
+this.go(t)}
+@ 230158 230258 0
+
+@ 230307 230307 283
+],["ORBQ",{pl:"Kostka",en:"Cube knob"}],["DISCQ",{pl:"Kwadrat z rdzeniem",en:"Square, cored"}],["RAILQ",{pl:"Uchwyt kwadratowy",en:"Square bar pull"}],["FRAME",{pl:"Kwadratowy pałąk · ARC Q",en:"Square bow · ARC Q"}],["EDGE",{pl:"Uchwyt krawędziowy · COVE Q",en:"Edge pull · COVE Q"}
+@ 230319 230324 5
+a])=>
+@ 230333 230357 51
+title:e.replace(/Q$/," Q"),desc:a[this.state.lang],
+@ 230526 230526 17
+productColl:"01",
+@ 230576 230587 399
+d=l.slice(0,5),c=l.slice(5),p=a?{round:"Wersja obła",roundSub:"kula · dysk · okrągłe przekroje · miękkie promienie",angular:"Wersja kanciasta",angularSub:"kostka · kwadrat · kwadratowe przekroje · precyzyjne krawędzie"}:{round:"Rounded version",roundSub:"sphere · disc · round sections · soft radii",angular:"Angular version",angularSub:"cube · square · square sections · precise edges"},m=[["DRUM",
+@ 230910 230915 5
+a])=>
+@ 230924 230948 24
+desc:a[this.state.lang],
+@ 231067 231078 11
+h=[["TILE",
+@ 231079 231114 39
+pl:"Gałka kwadratowa",en:"Square knob"}
+@ 231125 231161 46
+pl:"Uchwyt prostokątny",en:"Rectangular pull"}
+@ 231270 231306 36
+pl:"Płyta gładka",en:"Smooth panel"}
+@ 231318 231323 5
+a])=>
+@ 231332 231356 24
+desc:a[this.state.lang],
+@ 231539 231542 3
+u={
+@ 231828 231836 8
+y=["SB",
+@ 231871 231922 51
+const a=this.state.finish===e,t=this.finishTone(e);
+@ 232074 232096 22
+a?"#A8895A":"#D6CFC1"}
+@ 232236 232242 6
+t.dot}
+@ 232294 232323 29
+a?"outline:2px solid #A8895A;
+@ 232352 232400 48
+w=u[this.state.finish][this.state.lang],k=["SB",
+@ 232439 232749 310
+g=k?"pl"===this.state.lang?"Mosiądz o naturalnych właściwościach antybakteryjnych — wersje z certyfikatem wkrótce":"Brass with natural antibacterial properties — certified versions coming soon":"pl"===this.state.lang?"Powłoka ochronna · stały kolor":"Protective coating · stable colour",f="display:inline-flex;
+@ 232930 232955 25
+"+(k?"background:#EFE6D3;
+@ 233060 233073 13
+b="width:6px;
+@ 233102 233142 40
+background:"+(k?"#A8895A":"#B9B2A3"),z={
+@ 233460 233463 3
+E={
+@ 233539 233544 5
+T=e=>
+@ 233553 233590 37
+name:E[e],note:z[e][this.state.lang],
+@ 233622 233630 8
+M=["SB",
+@ 233635 233656 21
+"AB"].map(T),R=["MB",
