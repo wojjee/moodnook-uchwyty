@@ -1,7 +1,7 @@
-/* NOOK FORM v4: pre-rendered static WebP product photos. Inserts the image into each photo slot before
+/* NOOK FORM v4/v5: pre-rendered static WebP product photos. Inserts the image into each photo slot before
    the in-browser three.js renderer reaches it (it skips slots that already hold an <img>); unknown keys
    (e.g. configurator variants) still render live. The 3D viewer is untouched. MAP is filled by CI. */
-(function(){var M=/*MAP*/{}/*END*/,D='v4/p/';if(/[?&]nfcap/.test(location.search))return;
+(function(){var M=/*MAP*/{}/*END*/,D='v5/p/';if(/[?&]nfcap/.test(location.search))return;
 function show(el,im){var ok=function(){setTimeout(function(){im.classList.add('nfp-in');var s=el.querySelector(':scope>svg');if(s)s.style.opacity='0';},20);};
 if(im.complete&&im.naturalWidth)ok();else im.addEventListener('load',ok);}
 function put(el,k,cls){if(!M[k])return;var ex=el.querySelector('img');
