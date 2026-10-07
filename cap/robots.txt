@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /cap/
+Sitemap: https://wojjee.github.io/moodnook-uchwyty/sitemap.xml
