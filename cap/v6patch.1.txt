@@ -1,0 +1,456 @@
+@ 78960 78967 7
+if(d(r,
+@ 78969 78978 9
+!0)||l(r,
+@ 79371 79379 8
+if(!d(t,
+@ 79381 79390 9
+!0)&&l(t,
+@ 79423 79434 11
+na:d,bad:l,
+@ 79485 79489 4
+d(n,
+@ 79525 79529 4
+d(n,
+@ 79561 79565 4
+d(n,
+@ 79667 79672 5
+l=[],
+@ 79764 79779 15
+return l.push({
+@ 79874 79882 8
+l.push({
+@ 80063 80071 8
+l.push({
+@ 80080 80086 6
+v:d(r,
+@ 80105 80119 14
+m(r)&&l.push({
+@ 80206 80214 8
+l.push({
+@ 80289 80291 2
+l}
+@ 80451 80455 4
+d(o,
+@ 80489 80493 4
+d(o,
+@ 80554 80567 13
+s.ending=d(o,
+@ 133020 133020 1549
+
+<style id="nf-a11y">:focus-visible{outline:1px solid #A8895A!important;outline-offset:3px}[role=button]{cursor:pointer}.nf-cfg-note{color:#6b6355!important}
+.nfp-img,.nfs-img{user-select:none}@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}</style>
+<script id="nf-a11y-js">(function(){function fix(r){if(!r||r.nodeType!==1)return;var c=r.querySelectorAll('[sc-camel-on-click]:not(button):not(a):not([tabindex]),div[style*="cursor:pointer"]:not([tabindex])');
+for(var i=0;i<c.length;i++){var e=c[i];e.setAttribute('tabindex','0');e.setAttribute('role','button');}
+var im=r.querySelectorAll('img.nfp-img:not([data-a]),img.nfs-img:not([data-a])');for(var j=0;j<im.length;j++){var g=im[j],p=g.parentNode,k=(p&&p.getAttribute('data-k'))||'',m=/form:([A-Z]+)/.exec(k),sc=p&&p.getAttribute('data-nf-scene');
+g.setAttribute('data-a','1');if(!g.alt)g.alt=m?('NOOK FORM '+m[1].replace(/Q$/,' Q')+' — '+(document.documentElement.lang==='en'?'solid brass, reference render':'lity mosiądz, render poglądowy')):(sc?(document.documentElement.lang==='en'?'NOOK FORM hardware in an interior':'Uchwyty NOOK FORM we wnętrzu'):'');g.loading='lazy';}}
+document.addEventListener('keydown',function(e){var t=e.target;if((e.key==='Enter'||e.key===' ')&&t&&t.getAttribute&&t.getAttribute('role')==='button'&&t.tagName!=='BUTTON'){e.preventDefault();t.click();}});
+new MutationObserver(function(){clearTimeout(fix.t);fix.t=setTimeout(function(){fix(document.body)},60)}).observe(document.documentElement,{childList:true,subtree:true});})();</script>
+@ 195137 195191 54
+const o=t.getContext("2d"),i=o.createLinearGradient(0,
+@ 195217 195237 20
+i.addColorStop(e[0],
+@ 195245 195272 27
+o.fillStyle=i,o.fillRect(0,
+@ 195307 195333 26
+e++)o.fillStyle="rgba(120,
+@ 195363 195376 13
+o.fillRect(0,
+@ 195695 195713 18
+o=this.coreTex(a);
+@ 195815 195823 8
+e.map=o,
+@ 195847 195877 30
+e.emissiveMap="AM"===a?o:null,
+@ 196160 196211 51
+o=new THREE.Scene,i=new THREE.PerspectiveCamera(26,
+@ 196665 196665 2
+o,
+@ 196667 196669 0
+
+@ 196755 196798 43
+color:new THREE.Color(t).multiplyScalar(o),
+@ 196823 196854 31
+r.position.set(i[0],i[1],i[2]),
+@ 197263 197279 16
+o.environment=d;
+@ 197718 197723 5
+f=(e,
+@ 197767 197786 19
+o=new THREE.Mesh(t,
+@ 197789 197807 18
+return h.add(o),o}
+@ 197808 197811 3
+g={
+@ 197923 197945 22
+let M=null;const R=(e,
+@ 197962 197983 21
+let o=0;const i=[k(0,
+@ 198066 198077 11
+i.push(k(n,
+@ 198099 198103 4
+o=r}
+@ 198178 198199 21
+return i.push(k(r,o),
+@ 198203 198213 10
+o+n+.2*t),
+@ 198217 198232 15
+o+n+.2*t)),f(i,
+@ 198235 198239 4
+o+n}
+@ 198240 198265 386
+if(/Q$/.test(y)&&window.NFPhoto&&window.NFCfg){const e=NFCfg.FORMS[u.form]?NFCfg.select(u,"form",y):NFCfg.select(Object.assign({},u,{form:"ORBQ"}),"form",y),a=NFCfg.preview(e,!1),t=NFPhoto.build(a);t.traverse((e=>{e.isMesh&&(e.material=3===e.userData.p&&/^DISC/.test(y)?p:c)})),t.rotation.x=-Math.PI/2,t.scale.setScalar(w),t.updateMatrixWorld(!0),h.add(t)}else if("DISC"===y){const e=g,
+@ 198271 198277 6
+t=R(e,
+@ 198285 198315 30
+o=.19*e,i=z?.03*e:Math.max(.5,
+@ 198323 198342 19
+n=a-i-Math.max(2.2,
+@ 198372 198379 7
+f([k(0,
+@ 198406 198424 18
+t+o-i),k(a-i,t+o),
+@ 198428 198433 5
+t+o),
+@ 198437 198444 7
+t+o-r),
+@ 198448 198456 8
+t+o-r)],
+@ 198472 198490 18
+t+o-r)],l=t+o-.35;
+@ 198508 198515 7
+t+o-r),
+@ 198657 198663 6
+M=f(s,
+@ 198667 198733 66
+const e=M.geometry.attributes.position,a=M.geometry.attributes.uv,
+@ 198745 198822 77
+for(let o=0;o<e.count;o++){const i=Math.hypot(e.getX(o),e.getZ(o));a.setXY(o,
+@ 198851 198864 13
+1-i/t))+.01)}
+@ 198901 198919 18
+const e=g/2,a=R(g,
+@ 198945 199010 65
+o=z?1:.87;for(let i=1;i<=64;i++){const n=-Math.PI/2+i/64*Math.PI,
+@ 199029 199037 8
+o)break;
+@ 199081 199122 41
+a+e)):t.push(k(e*Math.sqrt(1-o*o),a+e*o),
+@ 199126 199138 12
+a+e*o)),f(t,
+@ 199254 199265 11
+E&&(f([k(0,
+@ 199368 199377 9
+o=5,i=32;
+@ 199397 199404 7
+f([k(0,
+@ 199428 199431 3
+i),
+@ 199435 199439 4
+i)],
+@ 199460 199534 74
+const n=new THREE.Mesh(new THREE.CylinderGeometry(o*w,o*w,(t-(z?2*o:0))*w,
+@ 199564 199581 17
+n.position.y=i*w,
+@ 199613 199665 52
+const a=new THREE.Mesh(new THREE.SphereGeometry(o*w,
+@ 199675 199706 31
+a.position.set(e*(t/2-o)*w,i*w,
+@ 199756 199771 15
+o=E?1.6:0,i=(e,
+@ 199832 199875 43
+if(n.add(new THREE.LineCurve3(i(-a,o),i(-a,
+@ 199882 199925 43
+n.add(new THREE.QuadraticBezierCurve3(i(-a,
+@ 199930 199935 5
+i(-a,
+@ 199938 199945 7
+i(-a+t,
+@ 199950 199984 34
+n.add(new THREE.LineCurve3(i(-a+t,
+@ 199987 199993 6
+i(a-t,
+@ 199998 200042 44
+n.add(new THREE.QuadraticBezierCurve3(i(a-t,
+@ 200045 200049 4
+i(a,
+@ 200052 200056 4
+i(a,
+@ 200063 200094 31
+n.add(new THREE.LineCurve3(i(a,
+@ 200099 200108 9
+i(a,o))),
+@ 200407 200455 48
+o=19,i=new THREE.Mesh(new THREE.BoxGeometry(a*w,
+@ 200459 200464 5
+o*w),
+@ 200467 200487 20
+if(i.position.set(0,
+@ 200493 200510 17
+-o/2*w),h.add(i),
+@ 200622 200671 49
+const o=new THREE.Mesh(new THREE.BoxGeometry(e*w,
+@ 200683 200700 17
+o.position.set(0,
+@ 200714 200723 9
+h.add(o)}
+@ 200831 200884 53
+const o=new THREE.Mesh(new THREE.CylinderGeometry(.2,
+@ 200913 200968 55
+o.rotation.z=Math.PI/2,o.rotation.x=0,o.position.set(0,
+@ 200984 200993 9
+h.add(o)}
+@ 200994 201100 106
+const T=(new THREE.Box3).setFromObject(h),S=T.getCenter(new THREE.Vector3),j=T.getSize(new THREE.Vector3);
+@ 201178 201187 9
+o.add(C);
+@ 201265 201282 17
+i.position.set(0,
+@ 201315 201326 11
+i.lookAt(0,
+@ 201834 201851 17
+scene:o,camera:i,
+@ 201877 201884 7
+core:M,
+@ 201984 201989 5
+F=a=>
+@ 202100 202105 5
+P=e=>
+@ 202298 202304 6
+O=()=>
+@ 202369 202369 39
+F),window.addEventListener("mousemove",
+@ 202372 202411 0
+
+@ 202445 202448 3
+O),
+@ 202480 202480 47
+F,{passive:!0}),I.addEventListener("touchmove",
+@ 202496 202543 0
+
+@ 202573 202576 3
+O),
+@ 202630 202633 3
+P),
+@ 202670 202673 3
+O)}
+@ 202674 202686 12
+const H=()=>
+@ 202735 202781 46
+n.render(o,i),D.raf=requestAnimationFrame(H))}
+@ 202782 202786 4
+H()}
+@ 203667 203726 41
+x:"Jeden system M4 · moduły do łączenia"}
+@ 203728 203805 14
+pillarNote:"",
+@ 204199 204266 66
+fineLine:"Czysta geometria w dwóch wersjach: obłej i kanciastej.",
+@ 205911 205958 49
+phiTitle:"Złota proporcja jako ukryty porządek.",
+@ 206234 206265 31
+ wygrywa montaż — raster 32 mm,
+@ 207313 207337 24
+v:"CW724R · CuZn21Si3P"}
+@ 207812 207890 66
+anatBody:"Każda forma składa się z tych samych modułów: podkładki,
+@ 207906 207986 148
+ rdzenia i zakończenia, połączonych jednym gwintem M4. Nóżki i podkładki są okrągłe albo kwadratowe i pasują do obu wersji. Zmieniasz jeden element,
+@ 208159 208270 145
+ jeden gwint M4. Moduły dobierają się do wersji formy, ale możesz je łączyć dowolnie. Podgląd pokazuje uchwyt złożony albo rozłożony na części.",
+@ 210805 210916 113
+ linii — i dopiero wtedy zajął się proporcją. To on uparł się przy ciągu Fibonacciego jako ukrytym porządku: Ø34,
+@ 210956 211043 99
+ zanim rozum policzy dlaczego. Fine Line — obła i kanciasta — to jego manifest redukcji: faza ma 0,
+@ 211374 211455 81
+story:"Júlia weszła do atelier z kontrą do miękkości RILL. Chciała kąta prostego,
+@ 211642 211757 115
+ które wyglądają inaczej o poranku i wieczorem. „To nie ornament” — powtarzała — „to architektura w skali dłoni”.",
+@ 211874 211942 79
+body:"Jeden stop: CW724R (CuZn21Si3P, EcoBrass) — bezołowiowy mosiądz krzemowy,
+@ 213434 213516 82
+body:"Eco sleeve z recyklingu albo elegancki box premium — zależnie od projektu."}
+@ 213572 213611 41
+ rozstawy montażowe i próbki wykończeń."}
+@ 214770 214819 42
+x:"One M4 system · mix-and-match modules"}
+@ 214821 214898 14
+pillarNote:"",
+@ 215264 215327 63
+fineLine:"Pure geometry in two versions: rounded and angular.",
+@ 216964 217010 47
+phiTitle:"The golden ratio as a hidden order.",
+@ 217303 217333 34
+ mounting wins — the 32 mm system,
+@ 218326 218350 24
+v:"CW724R · CuZn21Si3P"}
+@ 218841 218918 61
+anatBody:"Every form is built from the same modules — washer,
+@ 218930 218998 125
+ core and ending — joined by one M4 thread. Stems and washers come round or square and fit both versions. Change one element,
+@ 219178 219291 145
+ one M4 thread. Modules follow the form’s version, yet you can mix them freely. The preview shows your handle assembled or exploded into parts.",
+@ 221804 221919 116
+ line — and only then turned to proportion. It was he who insisted on the Fibonacci sequence as a hidden order: Ø34,
+@ 221927 222092 179
+ because the eye reads them as natural before the mind counts why. Fine Line — rounded and angular — is his manifesto of reduction: a chamfer of 0.3 mm still decides everything.",
+@ 222867 222929 73
+body:"One alloy: CW724R (CuZn21Si3P, EcoBrass) — lead-free silicon brass,
+@ 224553 224589 39
+ mounting centres and finish samples."}
+@ 226738 226764 26
+o=`<div style="width:46px;
+@ 227103 227129 26
+i=`<div style="width:84px;
+@ 227191 227234 43
+DRUM:o,STAVE:i,AXIS:i,VANE:o,DIAL:o,PORT:o,
+@ 227319 227326 7
+[e]||o}
+@ 230123 230147 24
+"CW724R · CuZn21Si3P"]]}
+@ 230294 230338 53
+ dymione szkło, kamień albo mosiądz. Zmieniasz rdzeń,
+@ 230453 230493 47
+ smoked glass, stone or brass. Change the core,
+@ 233322 233369 45
+pl:"ARC w wersji kanciastej: płaski przekrój,
+@ 233443 233491 47
+en:"ARC in its angular version: a flat section,
+@ 233954 233998 44
+ maksimum efektu. Kanciasta para dla COVE.",
+@ 234087 234136 47
+ maximum effect. The angular partner to COVE."}
+@ 235051 235132 63
+pl:"Niska gałka-bęben z drobnym ryflowaniem na obwodzie. Gęsta,
+@ 235163 235243 61
+en:"A low drum knob with fine fluting around its edge. Dense,
+@ 235391 235440 52
+e?"72 ryfle · h = 0,44 D":"72 flutes · h = 0.44 D"],
+@ 235935 235984 51
+e?"raster 32 mm · śruby":"32 mm system · screws"]]}
+@ 238596 238620 24
+"CW724R · CuZn21Si3P"]]}
+@ 241209 241233 24
+"CW724R · CuZn21Si3P"]]}
+@ 242580 242611 31
+o=this.state.screen,i=[["home",
+@ 243010 243023 13
+r=i.map((([e,
+@ 243042 243080 38
+i=o===t||"product"===e&&"product"===o;
+@ 243095 243116 21
+style:this.navBtn(i),
+@ 246260 246570 310
+f=k?"pl"===this.state.lang?"Mosiądz o naturalnych właściwościach antybakteryjnych — wersje z certyfikatem wkrótce":"Brass with natural antibacterial properties — certified versions coming soon":"pl"===this.state.lang?"Powłoka ochronna · stały kolor":"Protective coating · stable colour",g="display:inline-flex;
+@ 247360 247365 5
+M=e=>
+@ 247443 247451 8
+R=["SB",
+@ 247456 247477 21
+"AB"].map(M),T=["MB",
+@ 247482 247495 13
+"NK"].map(M),
+@ 248208 248423 215
+F=I(!v),P=I(v),O=v?a?"widok rozłożony · podkładka · nóżka · korpus · rdzeń":"exploded · washer · stem · body · core":a?"render poglądowy · skala":"reference render · to scale",H=this.rillInfo(),N=this.gridInfo(),G={
+@ 248545 248700 155
+W=this.state.productForm,K=this.state.productColl,_="02"===K,q="03"===K,U=q?N[W]:_?H[W]:s[W],Q=W,V=q?"03 GRID":_?"02 RILL":"01 Fine Line",$=U[a?"pl":"en"],
+@ 248813 248833 20
+o=(window.NF_SPEC||{
+@ 248834 248863 29
+)[W],i=U.spec.filter((([e])=>
+@ 248889 248958 69
+n=(o?i.slice(0,1).concat(o).concat(i.slice(1)):U.spec.filter((([e])=>
+@ 249010 249021 11
+o||n.push({
+@ 249212 249227 15
+v:a.indexOf(W)>
+@ 249841 249848 7
+form:W,
+@ 249892 249899 7
+form:W,
+@ 249963 250025 62
+form:W,si:this.formSi(W),insert:/^DISC/.test(W)?j.insert:"AM",
+@ 250050 250181 131
+ending:"ORB"===W||"DISC"===W?"ORB"===W&&"FL"===j.ending?"RD":"CH"===j.ending?"FL":j.ending:/Q$/.test(W)&&"CH"===j.ending?"CH":"FL",
+@ 250282 250341 59
+ee="NF-"+W+" · "+(a?"render poglądowy":"reference render"),
+@ 250403 250428 25
+te=!_&&!q&&ae.indexOf(W)>
+@ 250431 250435 4
+oe={
+@ 250455 250480 25
+form:W,si:this.formSi(W),
+@ 250582 250677 95
+ending:"ORB"===W?"RD":/Q$/.test(W)?"RD"===j.ending?"FL":j.ending:"CH"===j.ending?"FL":j.ending,
+@ 250728 250732 4
+ie={
+@ 251228 251307 79
+v:W.replace(/Q$/," Q")+(/^(DISC|ORB)/.test(W)?" · M / L / XL":" · CTC 96–320")}
+@ 251327 251377 50
+v:/^DISC/.test(W)?j.insert+" · "+ie[j.insert]:"—"}
+@ 251621 251646 10
+se=!_&&!q,
+@ 253660 253681 21
+const t=G[e],o=ue[e];
+@ 253814 253854 40
+rooms:o.rooms,mount:o.mount,feat:o.feat,
+@ 254152 254178 26
+const t=H[e].type,o=ue[e];
+@ 254242 254264 22
+sub:H[e][a?"pl":"en"],
+@ 254287 254327 40
+rooms:o.rooms,mount:o.mount,feat:o.feat,
+@ 254588 254614 26
+const t=N[e].type,o=ue[e];
+@ 254678 254700 22
+sub:N[e][a?"pl":"en"],
+@ 254723 254763 40
+rooms:o.rooms,mount:o.mount,feat:o.feat,
+@ 255391 255410 19
+fe=ke.length,ge=(e,
+@ 255551 255565 14
+be=ge("fColl",
+@ 255652 255666 14
+ze=ge("fType",
+@ 255805 255819 14
+Ee=ge("fRoom",
+@ 256137 256152 15
+Me=ge("fMount",
+@ 256200 256237 42
+a?"CTC · raster 32":"CTC · 32 mm system"],
+@ 256403 256417 14
+Re=ge("fFeat",
+@ 256679 256821 142
+Te=this.state.advOpen,Se=(Te?a?"Ukryj filtry zaawansowane":"Hide advanced filters":a?"Filtry zaawansowane":"Advanced filters")+(Te?" −":" +"),
+@ 257436 257470 34
+Fe=(e.atelier.people||[]).map(((e,
+@ 257509 257514 5
+Pe=[{
+@ 257647 257657 10
+let Oe=[];
+@ 257909 257953 44
+Oe.push((e.cx+e.r*Math.cos(t)).toFixed(1)+",
+@ 257994 258021 27
+const He=Oe.join(" "),Ne=[{
+@ 258730 258996 266
+isHome:"home"===o,isBrand:"brand"===o,isCollections:"collections"===o,isProduct:"product"===o,isConfig:"config"===o,isMaterial:"material"===o,isTrade:"trade"===o,isContact:"contact"===o,isCatalog:"catalog"===o,isInspiration:"inspiration"===o,isAtelier:"atelier"===o,
+@ 259724 259794 70
+livingFinishes:R,protectedFinishes:T,finishBadge:f,finishBadgeStyle:g,
+@ 259856 259897 41
+techFiles:Ne,phiSizes:Pe,spiralPoints:He,
+@ 259908 259918 10
+prodSub:$,
+@ 259990 260022 32
+atelierPeople:Fe,prodColLabel:V,
+@ 260093 260109 16
+catalogCount:fe,
+@ 260242 260284 42
+mountFilters:Me,featFilters:Re,advOpen:Te,
+@ 260661 260676 15
+anatomyHtml:oe,
+@ 260782 260819 37
+ae.indexOf(W)>=0?W:e.cfg.form):e.cfg;
+@ 260915 260954 39
+assembledTabStyle:F,explodedTabStyle:P,
+@ 261049 261066 17
+previewCaption:O,

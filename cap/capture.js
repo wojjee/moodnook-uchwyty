@@ -7,6 +7,7 @@ const settle=async ms=>{const t=Date.now();while(Date.now()-t<ms){const n=await 
 const got={};const grab=async()=>Object.assign(got,await p.evaluate(()=>{const o={};document.querySelectorAll('.nfp[data-k]>img.nfp-img').forEach(i=>{if(i.src.startsWith('blob:'))o[i.parentNode.getAttribute('data-k')]=i.src});document.querySelectorAll('[data-nf-scene]>img.nfs-img').forEach(i=>{if(i.src.startsWith('blob:'))o['scene:'+i.parentNode.getAttribute('data-nf-scene')]=i.src});return o;}));
 const nav=async l=>{await p.locator('header nav button',{hasText:new RegExp('^'+l+'$')}).first().click();await p.waitForTimeout(700);};
 await p.goto(URL+(URL.includes('?')?'&':'?')+'nfcap',{waitUntil:'networkidle'});await settle(90000);
+fs.mkdirSync(OUT,{recursive:true});await p.setViewportSize({width:1200,height:630});await p.waitForTimeout(1500);await p.screenshot({path:OUT+'/og.jpg',type:'jpeg',quality:84});await p.setViewportSize({width:1440,height:900});await p.waitForTimeout(800);
 await p.evaluate(()=>document.querySelector('.nf-insitu')&&document.querySelector('.nf-insitu').scrollIntoView());
 await grab();let t=Date.now();while(Date.now()-t<90000&&await p.evaluate(()=>document.querySelectorAll('[data-nf-scene]').length>document.querySelectorAll('[data-nf-scene]>img.nfs-img').length))await p.waitForTimeout(500);await grab();
 await nav('Kolekcje');await settle(180000);await grab();
