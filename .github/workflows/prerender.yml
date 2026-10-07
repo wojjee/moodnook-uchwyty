@@ -1,4 +1,4 @@
-name: Build v5 + pre-render static product photos
+name: Build v6 + pre-render static product photos
 on: workflow_dispatch
 permissions:
   contents: write
@@ -10,13 +10,13 @@ jobs:
         with: { path: main }
       - uses: actions/checkout@v4
         with: { ref: gh-pages, path: pages }
-      - name: Build v5 page (v4 chunks + patch, SHA-1 verified)
+      - name: Build v6 page (v5 chunks + patch, SHA-1 verified)
         run: |
-          python3 main/cap/build_v5.py pages pages
-          python3 main/cap/build_v5.py pages main
+          python3 main/cap/build_v6.py pages pages
+          python3 main/cap/build_v6.py pages main
           cp main/cap/index.html pages/index.html
           cp main/cap/index.html main/index.html
-          mkdir -p pages/v5/p && cp main/cap/nfstatic.js pages/v5/p/
+          mkdir -p pages/v6/p && cp main/cap/nfstatic.js pages/v6/p/
       - name: Render static WebP images
         run: |
           cd main/cap && npm i --no-save playwright-core@1 >/dev/null
@@ -29,10 +29,10 @@ jobs:
       - name: Commit to gh-pages and main
         run: |
           for d in pages main; do
-            rm -rf $d/v5/p && cp -r out $d/v5/p
+            rm -rf $d/v6/p && cp -r out $d/v6/p
             git -C $d config user.name "github-actions[bot]"
             git -C $d config user.email "41898283+github-actions[bot]@users.noreply.github.com"
-            git -C $d add v5 index.html
-            git -C $d diff --cached --quiet || git -C $d commit -m "v5: Fine Line round + angular, clean GRID, modular configurator + pre-rendered WebP"
+            git -C $d add v6 index.html
+            git -C $d diff --cached --quiet || git -C $d commit -m "v6: angular Fine Line in 3D viewer, spec v5 dims, copy + a11y/SEO polish, pre-rendered WebP"
             git -C $d push
           done
