@@ -1,0 +1,131 @@
+name: site v12 - v11 modular system + classic v9 (CAD, renders, PDF, tests, deploy)
+on: workflow_dispatch
+permissions:
+  contents: write
+concurrency: { group: site-v12, cancel-in-progress: false }
+jobs:
+  cad:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { path: main, sparse-checkout: v12src }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.13' }
+      - name: CAD toolchain (same pins as the design workstation)
+        run: pip install -q cadquery-ocp-novtk==8.0.1.1.0 cadquery-ocp-proxy==8.0.1.1.0 build123d==0.13.0 ezdxf==1.4.4 lib3mf==2.5.0 trimesh==5.1.1 numpy==2.5.3 pillow==12.2.0 scipy==1.18.1 rtree==1.4.1 networkx==3.7
+      - name: Build v11 geometry (5 directions, mixes, system parts) + site modules + exploded assembly
+        run: |
+          bash main/v12src/ci/setup_paths.sh
+          cd /workspace/moodnook
+          python v11/build_v11.py --all
+          NF_JS=1 python v12/src/export_modules.py v12/build
+          python v11/render/build_exploded.py
+          find v11/step \( -name '*.step' -o -name '*.stp' -o -name '*.stl' -o -name '*.3mf' -o -name '*.dxf' \) -delete
+          du -sh v11/step v12/build; ls v12/build/mod | wc -l
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cad
+          retention-days: 2
+          path: |
+            /workspace/moodnook/v11/step
+            /workspace/moodnook/v12/build
+            /workspace/moodnook/v11/renders/spec/exploded_meta.json
+  render:
+    needs: cad
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+      matrix: { shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] }
+    steps:
+      - uses: actions/checkout@v4
+        with: { path: main, sparse-checkout: v12src }
+      - uses: actions/cache@v4
+        with: { path: ~/blender, key: blender-4.2.23-linux-x64 }
+      - name: Blender 4.2.23 LTS
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq libxi6 libxkbcommon0 libsm6 libgl1 libxrender1 libxxf86vm1 libxfixes3 > /dev/null
+          if [ ! -x ~/blender/blender ]; then curl -sL https://download.blender.org/release/Blender4.2/blender-4.2.23-linux-x64.tar.xz | tar -xJ -C ~ && mv ~/blender-4.2.23-linux-x64 ~/blender; fi
+          ~/blender/blender --version | head -1
+      - run: bash main/v12src/ci/setup_paths.sh
+      - uses: actions/download-artifact@v4
+        with: { name: cad, path: /workspace/moodnook }
+      - name: Render shard ${{ matrix.shard }} / 10
+        run: bash main/v12src/ci/render_shard.sh ${{ matrix.shard }} 10
+      - uses: actions/upload-artifact@v4
+        with:
+          name: renders-${{ matrix.shard }}
+          retention-days: 2
+          path: |
+            /workspace/moodnook/v12/renders/*.png
+            /workspace/moodnook/v12/renders/shard_*.txt
+            /workspace/moodnook/v11/renders/family_*.png
+            /workspace/moodnook/v11/renders/mix/*.png
+            /workspace/moodnook/v11/renders/mix/shard_*.txt
+            /workspace/moodnook/v11/renders/exploded_OB-R128*
+  site:
+    needs: render
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { path: main }
+      - uses: actions/checkout@v4
+        with: { ref: gh-pages, path: pages }
+      - run: bash main/v12src/ci/setup_paths.sh
+      - uses: actions/download-artifact@v4
+        with: { name: cad, path: /workspace/moodnook }
+      - uses: actions/download-artifact@v4
+        with: { pattern: renders-*, merge-multiple: true, path: /workspace/moodnook }
+      - name: Tools (fonts for the PDF, pillow, poppler, playwright-core)
+        run: |
+          mkdir -p ~/.local/share/fonts
+          for f in jost/Jost%5Bwght%5D.ttf jost/Jost-Italic%5Bwght%5D.ttf cormorantgaramond/CormorantGaramond%5Bwght%5D.ttf cormorantgaramond/CormorantGaramond-Italic%5Bwght%5D.ttf; do
+            curl -sfL "https://raw.githubusercontent.com/google/fonts/main/ofl/$f" -o ~/.local/share/fonts/$(basename "$f" | sed 's/%5B/[/;s/%5D/]/'); done
+          fc-cache -f > /dev/null
+          pip install -q pillow==12.2.0
+          sudo apt-get install -y -qq poppler-utils > /dev/null
+          cd main/cap && npm i --no-save playwright-core@1 > /dev/null
+          ls /workspace/moodnook/v12/renders/*.png | wc -l; ls /workspace/moodnook/v11/renders /workspace/moodnook/v11/renders/mix
+      - name: Catalogue PDF (public edition) + mix sheet + annotated exploded view
+        run: cd /workspace/moodnook/v11/layout && python3 build_pdf.py sheets pdf && ls -la ../katalog-modulowy-v11.pdf
+      - name: Assemble v12 site (index.html = v11 modular system)
+        run: |
+          M=/workspace/moodnook
+          python3 $M/v12/src/build_site.py pages main/v12src/app $M/v12/build $M/v12/renders $M/v11/renders $M/v11/katalog-modulowy-v11.pdf
+      - name: Classic collection v9 -> klasyczna.html (+ pre-rendered photos)
+        run: |
+          python3 main/v12src/classic/build_classic.py pages pages main/cap
+          cp main/v12src/classic/klasyczna.html pages/klasyczna.html
+          mkdir -p pages/v8/p && cp main/cap/nfstatic.js pages/v8/p/
+          (cd pages && python3 -m http.server 8774 > /dev/null 2>&1 &) ; sleep 2
+          cd main/cap && CHROME=$(which google-chrome) node capture.js http://localhost:8774/klasyczna.html ../../out
+          cd ../.. && rm -rf pages/v8/p && cp -r out pages/v8/p
+      - name: Tests (block deploy) - classic thumbs/consistency/washer, v12 static + browser, publication grep
+        run: |
+          set -o pipefail
+          export CHROME=$(which google-chrome) NODE_PATH=$PWD/main/cap/node_modules
+          (cd pages && python3 -m http.server 8775 > /dev/null 2>&1 &) ; sleep 2
+          U=http://localhost:8775/klasyczna.html
+          (cd main/cap && node test_thumbs.js $U --static | tail -n 12)
+          (cd main/cap && node test_consistency.js $U | tail -n 3)
+          (cd main/cap && node test_washer.js $U | tail -n 3)
+          python3 /workspace/moodnook/v12/src/test_v12.py pages /workspace/moodnook/v11/test_results.json | tail -n 6
+          node /workspace/moodnook/v12/src/test_v12.js http://localhost:8775/ | tail -n 4
+          python3 main/v12src/ci/grep_check.py pages
+      - name: Commit to gh-pages and main
+        run: |
+          cat > pages/sitemap.xml <<'XML'
+          <?xml version="1.0" encoding="UTF-8"?>
+          <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+            <url><loc>https://wojjee.github.io/moodnook-uchwyty/</loc><lastmod>2026-10-08</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+            <url><loc>https://wojjee.github.io/moodnook-uchwyty/klasyczna.html</loc><lastmod>2026-10-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+          </urlset>
+          XML
+          rm -rf main/v12 main/v8/p && cp -r pages/v12 main/v12 && cp -r pages/v8/p main/v8/p
+          cp pages/v8/0*.b64 main/v8/ && cp pages/index.html pages/klasyczna.html pages/sitemap.xml main/
+          for d in pages main; do
+            git -C $d config user.name "github-actions[bot]"
+            git -C $d config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+            git -C $d add index.html klasyczna.html sitemap.xml v12 v8
+            git -C $d diff --cached --quiet || git -C $d commit -q -m "site v12: v11 modular system (5 directions, configurator, PDF) + classic collection v9 on klasyczna.html"
+            git -C $d pull -q --rebase && git -C $d push -q
+          done
