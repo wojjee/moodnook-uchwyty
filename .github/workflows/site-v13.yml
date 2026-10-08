@@ -28,7 +28,7 @@ jobs:
         with: { path: main, sparse-checkout: v13src }
       - uses: actions/setup-python@v5
         with: { python-version: '3.13' }
-      - name: Unpack v13 build bundle (compiled CAD kernel, render specs, site sources, test results)
+      - name: Unpack v13 build bundle (CAD kernel, render specs, site sources, test results)
         run: |
           (cd main/v13src/pack && for f in SHA256SUMS_*; do sha256sum -c $f; done)
           sudo mkdir -p /workspace && sudo chown "$USER" /workspace && mkdir -p $M/v13src
@@ -37,7 +37,7 @@ jobs:
         run: pip install -q cadquery-ocp-novtk==8.0.1.1.0 cadquery-ocp-proxy==8.0.1.1.0 build123d==0.13.0 ezdxf==1.4.4 lib3mf==2.5.0 trimesh==5.1.1 numpy==2.5.3 pillow==12.2.0 scipy==1.18.1 rtree==1.4.1 networkx==3.7
       - name: Build geometry shard ${{ matrix.shard }} / 6 (render assemblies + configurator modules)
         run: |
-          cd $M/v13src/cad && NF_KERNEL=$PWD python build13.pyc $M/v13/out --jobs 3 --shard ${{ matrix.shard }}/6
+          cd $M/v13src/cad && NF_KERNEL=$PWD python build13.py $M/v13/out --jobs 3 --shard ${{ matrix.shard }}/6
           ls $M/v13/out/glb | wc -l; ls $M/v13/out/mod | wc -l; du -sh $M/v13/out
       - uses: actions/upload-artifact@v4
         with:
