@@ -23,8 +23,20 @@ for kind in ('pull', 'knob', 'door', 'window'):
 esc_ok = {e['key'][0] for e in TR['esc'] if e['ok']}
 ok(set(N['combos']['esc']) <= esc_ok, 'esc dirs not all passing')
 img = os.path.join(site, 'v12/img')
-def has(name):
-    return all(os.path.getsize(os.path.join(img, '%s-%d.webp' % (name, w))) > 2000 if os.path.exists(os.path.join(img, '%s-%d.webp' % (name, w))) else False for w in (640, 1200))
+from PIL import Image
+_seen = {}
+def has(name):  # both WebP sizes exist and the image is not blank: >0.3 % of pixels clearly darker than the background median
+    if name not in _seen:
+        ps = [os.path.join(img, '%s-%d.webp' % (name, w)) for w in (640, 1200)]
+        good = all(os.path.exists(q) and os.path.getsize(q) > 500 for q in ps)
+        if good:
+            h = Image.open(ps[0]).convert('L').histogram(); n = sum(h); c = 0
+            for med, v in enumerate(h):
+                c += v
+                if c >= n / 2: break
+            good = sum(h[:max(0, med - 25)]) / n > 0.003
+        _seen[name] = good
+    return _seen[name]
 skus = [p['sku'] for p in N['products']]
 ok(len(skus) == len(set(skus)), 'duplicate product SKUs: %s' % sorted({x for x in skus if skus.count(x) > 1}))
 ok(len({p['id'] for p in N['products']}) == len(N['products']), 'duplicate product ids')
