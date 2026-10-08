@@ -102,7 +102,7 @@ jobs:
       - name: Tools (pillow, playwright on the runner's Chrome, poppler, web fonts)
         run: |
           pip install -q pillow==12.2.0 playwright==1.63.0
-          sudo apt-get install -y -qq poppler-utils > /dev/null
+          sudo apt-get update -qq > /dev/null && sudo apt-get install -y -qq poppler-utils > /dev/null
           python $M/v13src/site/fetch_fonts.py $M/v13src/site/app/v13/fonts
           ls $M/v13/renders/*.png | wc -l; ls $M/v13/out/mod | wc -l
       - name: Assemble site (images, modules, data, app, shells, redirects, sitemap)
