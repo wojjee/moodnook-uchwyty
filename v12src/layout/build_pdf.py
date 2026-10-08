@@ -110,7 +110,7 @@ def p_material(n):
 <tr><td class="k">Rp0,2</td><td>≥ 300–400 MPa (pręt ciągniony, wg średnicy)</td></tr>
 <tr><td class="k">Skrawalność</td><td>ok. 80 % CuZn39Pb3 – ostre narzędzia, chłodziwo; M4 gwintuje się dobrze</td></tr>
 <tr><td class="k">Cu</td><td>ok. 76 % → miedziowe właściwości powierzchni zachowane</td></tr>
-<tr><td class="k">Drewno (OSIKA)</td><td>dąb (DB) lub jesion (JS), olej-wosk; klejone epoksydem na rdzeń, dzielone pod obrączkami (bez widocznych czoł)</td></tr>
+<tr><td class="k">Drewno (OSIKA)</td><td>dąb (DB) lub jesion (JS), olej-wosk; klejone epoksydem na rdzeń, dzielone pod obrączkami (bez widocznych czół)</td></tr>
 <tr><td class="k">Odlew (OTOCZAK)</td><td>wosk tracony w CW724R lub odpowiedniku odlewniczym bezołowiowym; czoło Ø7,2 i gwinty obrabiane po odlewie</td></tr>
 </table></div>
 <div style="flex:1"><h4 class="kicker" style="margin-top:0">Wykończenia – ostatnie pole SKU</h4>
