@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
-Disallow: /cap/
+Disallow: /moodnook-uchwyty/karta/
+Disallow: /moodnook-uchwyty/zapytanie/
 Sitemap: https://wojjee.github.io/moodnook-uchwyty/sitemap.xml
