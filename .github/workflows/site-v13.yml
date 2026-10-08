@@ -1,0 +1,131 @@
+name: site v13 - one site, 8 collections, one M4 system (CAD, renders, PDF, tests, deploy)
+on:
+  workflow_dispatch:
+    inputs:
+      reuse_run:
+        description: 'run id whose cad + render artifacts are reused (skips CAD and Blender); empty = full build'
+        required: false
+        default: ''
+      deploy:
+        description: 'commit to gh-pages when all tests pass'
+        required: false
+        default: 'yes'
+permissions:
+  contents: write
+  actions: read
+concurrency: { group: site-v13, cancel-in-progress: false }
+env:
+  M: /workspace/moodnook
+jobs:
+  cad:
+    if: ${{ inputs.reuse_run == '' }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+      matrix: { shard: [0, 1, 2, 3, 4, 5] }
+    steps:
+      - uses: actions/checkout@v4
+        with: { path: main, sparse-checkout: v13src }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.13' }
+      - name: Unpack v13 build bundle (compiled CAD kernel, render specs, site sources, test results)
+        run: |
+          (cd main/v13src/pack && for f in SHA256SUMS_*; do sha256sum -c $f; done)
+          sudo mkdir -p /workspace && sudo chown "$USER" /workspace && mkdir -p $M/v13src
+          for d in a b; do [ -d main/v13src/pack/$d ] || continue; cat main/v13src/pack/$d/*.b64 | base64 -d | tar -xJ -C $M/v13src; done; ls -R $M/v13src | head -40
+      - name: CAD toolchain (same pins as the design workstation)
+        run: pip install -q cadquery-ocp-novtk==8.0.1.1.0 cadquery-ocp-proxy==8.0.1.1.0 build123d==0.13.0 ezdxf==1.4.4 lib3mf==2.5.0 trimesh==5.1.1 numpy==2.5.3 pillow==12.2.0 scipy==1.18.1 rtree==1.4.1 networkx==3.7
+      - name: Build geometry shard ${{ matrix.shard }} / 6 (render assemblies + configurator modules)
+        run: |
+          cd $M/v13src/cad && NF_KERNEL=$PWD python build13.pyc $M/v13/out --jobs 3 --shard ${{ matrix.shard }}/6
+          ls $M/v13/out/glb | wc -l; ls $M/v13/out/mod | wc -l; du -sh $M/v13/out
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cad-${{ matrix.shard }}
+          retention-days: 3
+          path: |
+            /workspace/moodnook/v13/out/glb
+            /workspace/moodnook/v13/out/mod
+            /workspace/moodnook/v13/out/*.json
+  render:
+    needs: cad
+    if: ${{ inputs.reuse_run == '' }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+      matrix: { shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15] }
+    steps:
+      - uses: actions/checkout@v4
+        with: { path: main, sparse-checkout: v13src }
+      - uses: actions/cache@v4
+        with: { path: ~/blender, key: blender-4.2.23-linux-x64 }
+      - name: Blender 4.2.23 LTS
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq libxi6 libxkbcommon0 libsm6 libgl1 libxrender1 libxxf86vm1 libxfixes3 > /dev/null
+          if [ ! -x ~/blender/blender ]; then curl -sL https://download.blender.org/release/Blender4.2/blender-4.2.23-linux-x64.tar.xz | tar -xJ -C ~ && mv ~/blender-4.2.23-linux-x64 ~/blender; fi
+          ~/blender/blender --version | head -1
+      - name: Unpack bundle
+        run: |
+          sudo mkdir -p /workspace && sudo chown "$USER" /workspace && mkdir -p $M/v13src
+          for d in a b; do [ -d main/v13src/pack/$d ] || continue; cat main/v13src/pack/$d/*.b64 | base64 -d | tar -xJ -C $M/v13src; done
+      - uses: actions/download-artifact@v4
+        with: { pattern: cad-*, merge-multiple: true, path: /workspace/moodnook/v13/out }
+      - name: Render shard ${{ matrix.shard }} / 16
+        run: bash $M/v13src/render_shard13.sh ${{ matrix.shard }} 16
+      - uses: actions/upload-artifact@v4
+        with:
+          name: renders-${{ matrix.shard }}
+          retention-days: 3
+          path: |
+            /workspace/moodnook/v13/renders/*.png
+            /workspace/moodnook/v13/renders/*_anchors.json
+            /workspace/moodnook/v13/renders/shard_*.txt
+  site:
+    needs: render
+    if: ${{ always() && (needs.render.result == 'success' || inputs.reuse_run != '') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { path: main, sparse-checkout: v13src }
+      - uses: actions/checkout@v4
+        with: { ref: gh-pages, path: pages }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.13' }
+      - name: Unpack bundle
+        run: |
+          sudo mkdir -p /workspace && sudo chown "$USER" /workspace && mkdir -p $M/v13src
+          for d in a b; do [ -d main/v13src/pack/$d ] || continue; cat main/v13src/pack/$d/*.b64 | base64 -d | tar -xJ -C $M/v13src; done
+      - uses: actions/download-artifact@v4
+        with: { pattern: cad-*, merge-multiple: true, path: /workspace/moodnook/v13/out, run-id: '${{ inputs.reuse_run || github.run_id }}', github-token: '${{ github.token }}' }
+      - uses: actions/download-artifact@v4
+        with: { pattern: renders-*, merge-multiple: true, path: /workspace/moodnook/v13/renders, run-id: '${{ inputs.reuse_run || github.run_id }}', github-token: '${{ github.token }}' }
+      - name: Tools (pillow, playwright on the runner's Chrome, poppler, web fonts)
+        run: |
+          pip install -q pillow==12.2.0 playwright==1.63.0
+          sudo apt-get install -y -qq poppler-utils > /dev/null
+          python $M/v13src/site/fetch_fonts.py $M/v13src/site/app/v13/fonts
+          ls $M/v13/renders/*.png | wc -l; ls $M/v13/out/mod | wc -l
+      - name: Assemble site (images, modules, data, app, shells, redirects, sitemap)
+        run: python $M/v13src/site/build_site13.py $PWD/site $M/v13/out $M/v13src/tr13.json $M/v13/renders -
+      - name: Prerender every route (PL + EN)
+        run: python $M/v13src/site/prerender13.py $PWD/site
+      - name: Katalog PDF
+        run: python $M/v13src/site/pdf13.py $PWD/site && pdfinfo site/v13/*.pdf | head -12
+      - name: Tests (block deploy) - static links/SEO, browser 3D/configurator/mobile, publication grep
+        run: |
+          python $M/v13src/site/test_site13.py $PWD/site
+          rm site/routes13.json
+          python $M/v13src/site/grep_check13.py site
+      - name: Commit to gh-pages (one site; the old classic page and v12 home are replaced by redirects)
+        if: ${{ inputs.deploy != 'no' }}
+        run: |
+          cd pages
+          git rm -q --ignore-unmatch v8/0*.b64 p/0*.b64
+          rm -rf v13 en kolekcje produkty katalog konfigurator mix architekci material info zapytanie karta
+          cp -r ../site/. .
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add -A .
+          git diff --cached --quiet || git commit -q -m "site v13: one site - 8 collections on one M4 system, prerendered real URLs, configurator with live 3D, catalogue PDF"
+          git pull -q --rebase && git push -q
+          git log -1 --stat | tail -3
