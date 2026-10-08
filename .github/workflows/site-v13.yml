@@ -32,7 +32,7 @@ jobs:
         run: |
           (cd main/v13src/pack && for f in SHA256SUMS_*; do sha256sum -c $f; done)
           sudo mkdir -p /workspace && sudo chown "$USER" /workspace && mkdir -p $M/v13src
-          for d in a b c; do [ -d main/v13src/pack/$d ] || continue; cat main/v13src/pack/$d/*.b64 | base64 -d | tar -xJ -C $M/v13src; done; ls -R $M/v13src | head -40
+          for d in a b c d; do [ -d main/v13src/pack/$d ] || continue; cat main/v13src/pack/$d/*.b64 | base64 -d | tar -xJ -C $M/v13src; done; ls -R $M/v13src | head -40
       - name: CAD toolchain (same pins as the design workstation)
         run: pip install -q cadquery-ocp-novtk==8.0.1.1.0 cadquery-ocp-proxy==8.0.1.1.0 build123d==0.13.0 ezdxf==1.4.4 lib3mf==2.5.0 trimesh==5.1.1 numpy==2.5.3 pillow==12.2.0 scipy==1.18.1 rtree==1.4.1 networkx==3.7
       - name: Build geometry shard ${{ matrix.shard }} / 6 (render assemblies + configurator modules)
@@ -67,7 +67,7 @@ jobs:
       - name: Unpack bundle
         run: |
           sudo mkdir -p /workspace && sudo chown "$USER" /workspace && mkdir -p $M/v13src
-          for d in a b c; do [ -d main/v13src/pack/$d ] || continue; cat main/v13src/pack/$d/*.b64 | base64 -d | tar -xJ -C $M/v13src; done
+          for d in a b c d; do [ -d main/v13src/pack/$d ] || continue; cat main/v13src/pack/$d/*.b64 | base64 -d | tar -xJ -C $M/v13src; done
       - uses: actions/download-artifact@v4
         with: { pattern: cad-*, merge-multiple: true, path: /workspace/moodnook/v13/out }
       - name: Render shard ${{ matrix.shard }} / 16
@@ -94,7 +94,7 @@ jobs:
       - name: Unpack bundle
         run: |
           sudo mkdir -p /workspace && sudo chown "$USER" /workspace && mkdir -p $M/v13src
-          for d in a b c; do [ -d main/v13src/pack/$d ] || continue; cat main/v13src/pack/$d/*.b64 | base64 -d | tar -xJ -C $M/v13src; done
+          for d in a b c d; do [ -d main/v13src/pack/$d ] || continue; cat main/v13src/pack/$d/*.b64 | base64 -d | tar -xJ -C $M/v13src; done
       - uses: actions/download-artifact@v4
         with: { pattern: cad-*, merge-multiple: true, path: /workspace/moodnook/v13/out, run-id: '${{ inputs.reuse_run || github.run_id }}', github-token: '${{ github.token }}' }
       - uses: actions/download-artifact@v4
@@ -121,11 +121,17 @@ jobs:
         run: |
           cd pages
           git rm -q --ignore-unmatch v8/0*.b64 p/0*.b64
+          # owner-approved cleanup: old unlinked version folders and the v8/p transfer/image folders;
+          # the redirect pages v8/index.html and p/index.html are re-added from the build below
+          git rm -r -q --ignore-unmatch v2 v3 v4 v5 v6 v12 v8 p
           rm -rf v13 en kolekcje produkty katalog konfigurator mix architekci material info zapytanie karta
           cp -r ../site/. .
           git config user.name "github-actions[bot]"
           git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
           git add -A .
+          git diff --cached --name-status --no-renames | awk '$1=="D"{print $2}' > /tmp/deleted.txt
+          echo "deleted: $(wc -l < /tmp/deleted.txt) files"; awk -F/ '{print (NF>2?$1"/"$2:$1)}' /tmp/deleted.txt | sort | uniq -c
+          echo "::group::deleted paths"; cat /tmp/deleted.txt; echo "::endgroup::"
           git diff --cached --quiet || git commit -q -m "site v13: one site - 8 collections on one M4 system, prerendered real URLs, configurator with live 3D, catalogue PDF"
           git pull -q --rebase && git push -q
           git log -1 --stat | tail -3
