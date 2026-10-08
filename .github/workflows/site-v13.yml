@@ -116,22 +116,17 @@ jobs:
           python $M/v13src/site/test_site13.py $PWD/site
           rm site/routes13.json
           python $M/v13src/site/grep_check13.py site
-      - name: Commit to gh-pages (one site; the old classic page and v12 home are replaced by redirects)
+      - name: Commit to gh-pages (branch content = the tested build; redirects klasyczna.html, v8/, p/ come from the build)
         if: ${{ inputs.deploy != 'no' }}
         run: |
+          for f in index.html 404.html klasyczna.html v8/index.html p/index.html sitemap.xml .nojekyll; do test -f site/$f || { echo "missing site/$f"; exit 1; }; done
           cd pages
-          git rm -q --ignore-unmatch v8/0*.b64 p/0*.b64
-          # owner-approved cleanup: old unlinked version folders and the v8/p transfer/image folders;
-          # the redirect pages v8/index.html and p/index.html are re-added from the build below
-          git rm -r -q --ignore-unmatch v2 v3 v4 v5 v6 v12 v8 p
-          rm -rf v13 en kolekcje produkty katalog konfigurator mix architekci material info zapytanie karta
+          git rm -r -q --ignore-unmatch .
           cp -r ../site/. .
           git config user.name "github-actions[bot]"
           git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
           git add -A .
-          git diff --cached --name-status --no-renames | awk '$1=="D"{print $2}' > /tmp/deleted.txt
-          echo "deleted: $(wc -l < /tmp/deleted.txt) files"; awk -F/ '{print (NF>2?$1"/"$2:$1)}' /tmp/deleted.txt | sort | uniq -c
-          echo "::group::deleted paths"; cat /tmp/deleted.txt; echo "::endgroup::"
-          git diff --cached --quiet || git commit -q -m "site v13: one site - 8 collections on one M4 system, prerendered real URLs, configurator with live 3D, catalogue PDF"
+          git diff --cached --stat | tail -1
+          git diff --cached --quiet || git commit -q -m "site v13 deploy (run ${{ github.run_id }})"
           git pull -q --rebase && git push -q
-          git log -1 --stat | tail -3
+          git log -1 --format='%H %s'
