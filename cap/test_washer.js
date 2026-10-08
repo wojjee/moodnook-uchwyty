@@ -7,9 +7,9 @@ await p.goto(URL,{waitUntil:'networkidle'});await p.waitForFunction(()=>window.N
 const r=await p.evaluate(()=>{const T=THREE,F=NFCfg.FORMS,fails=[],stat={cases:0,visual:0};
  const box=(G,q)=>{const bb=new T.Box3();let n=0;G.updateMatrixWorld(true);G.traverse(o=>{if(o.isMesh&&(o.userData.p||0)===q){bb.expandByObject(o);n++;}});return n?bb:null;};
  const px=(S)=>{const cv=NFPhoto.shot(S,160,160);const c=document.createElement('canvas');c.width=c.height=160;const x=c.getContext('2d');x.drawImage(cv,0,0);return x.getImageData(0,0,160,160).data;};
- for(const f of Object.keys(F)){const knob=F[f].type==='knob';const vals=knob?NFCfg.options('size',true).map(o=>o[0]):NFCfg.options('mount',true).map(o=>o[0]);
+ for(const f of Object.keys(F)){const c0=NFCfg.normalize({form:f});if(NFCfg.na(c0,'washer',true))continue;const knob=!NFCfg.na(c0,'size',true);const vals=NFCfg.options(knob?'size':'mount',true,c0).map(o=>o[0]);
   for(const v of vals){const pix={};
-   for(const w of ['RP','SP','NP']){let c=NFCfg.select(NFCfg.select(Object.assign({},NFCfg.DEF),'form',f),knob?'size':'mount',v);c=NFCfg.select(c,'washer',w);
+   for(const w of ['RP','SP','NP']){if(NFCfg.bad(c0,'washer',w,true))continue;let c=NFCfg.select(NFCfg.select(Object.assign({},NFCfg.DEF),'form',f),knob?'size':'mount',v);c=NFCfg.select(c,'washer',w);
     if(NFCfg.na(c,'washer',true)){continue;} if(c.washer!==w){fails.push([f,v,w,'select did not apply washer']);continue;}
     for(const xp of [false,true]){stat.cases++;const S=NFCfg.preview(c,xp),G=NFPhoto.build(S),wb=box(G,0),sb=box(G,1)||box(G,2);/* ARC/FRAME legs are part of the body */
      if(!xp&&v===vals[Math.floor(vals.length/2)]) pix[w]=px(S);const id=[f,v,w,xp?'xp':'asm'].join('/');

@@ -1,10 +1,18 @@
 name: site v12 - v11 modular system + classic v9 (CAD, renders, PDF, tests, deploy)
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+    inputs:
+      reuse_run:
+        description: 'run id whose cad + render artifacts are reused (skips CAD and Blender); empty = full build'
+        required: false
+        default: ''
 permissions:
   contents: write
+  actions: read
 concurrency: { group: site-v12, cancel-in-progress: false }
 jobs:
   cad:
+    if: ${{ inputs.reuse_run == '' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -32,6 +40,7 @@ jobs:
             /workspace/moodnook/v11/renders/spec/exploded_meta.json
   render:
     needs: cad
+    if: ${{ inputs.reuse_run == '' }}
     runs-on: ubuntu-latest
     strategy:
       fail-fast: true
@@ -64,6 +73,7 @@ jobs:
             /workspace/moodnook/v11/renders/exploded_OB-R128*
   site:
     needs: render
+    if: ${{ always() && (needs.render.result == 'success' || inputs.reuse_run != '') }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -72,9 +82,9 @@ jobs:
         with: { ref: gh-pages, path: pages }
       - run: bash main/v12src/ci/setup_paths.sh
       - uses: actions/download-artifact@v4
-        with: { name: cad, path: /workspace/moodnook }
+        with: { name: cad, path: /workspace/moodnook, run-id: '${{ inputs.reuse_run || github.run_id }}', github-token: '${{ github.token }}' }
       - uses: actions/download-artifact@v4
-        with: { pattern: renders-*, merge-multiple: true, path: /workspace/moodnook }
+        with: { pattern: renders-*, merge-multiple: true, path: /workspace/moodnook, run-id: '${{ inputs.reuse_run || github.run_id }}', github-token: '${{ github.token }}' }
       - name: Tools (fonts for the PDF, pillow, poppler, playwright-core)
         run: |
           mkdir -p ~/.local/share/fonts
