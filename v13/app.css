@@ -232,3 +232,15 @@ fieldset{border:0;padding:0;margin:0 0 20px}legend{font:450 var(--fs-xs)/1 var(-
 @media (max-width:420px){.spheres{grid-template-columns:repeat(4,1fr);gap:6px}.sw.big{width:44px;height:44px}.files{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 @media print{.hd,.ft,.svc,.noprint,.toast,.drw,.pbar,.cbar,.tplc,.crumb{display:none!important}body{background:#fff}.sec.alt{background:none}#tpl{padding:0}.sheet{padding:0}a{text-decoration:none}}
+
+.pcap{margin:10px 2px 0;font-size:13px;line-height:1.5;color:var(--mut);letter-spacing:.01em}.pcap .lnk{font-size:inherit;padding:0;margin:0;vertical-align:baseline}
+/* QA v13: 360 px phones (header fits), labels ≥ 12 px, logo target ≥ 24 px, focus not hidden under the fixed bottom bars */
+.xl small{font-size:inherit}
+.logo{display:inline-flex;align-items:center;min-height:24px}
+@media (max-width:860px){body:has(.cbar),body:has(.pbar){scroll-padding-bottom:96px}html:has(.cbar),html:has(.pbar){scroll-padding-bottom:96px}}
+@media (max-width:380px){.logo{font-size:18px;letter-spacing:.22em}.util{gap:10px}}
+/* QA v13 live 09-10: the header's backdrop-filter made it the containing block of the fixed mobile menu (panel ~40 px tall, page painted over it); filters panel taller than the viewport hid the Finish group */
+@media (max-width:1179px){body.menu-open .hd{backdrop-filter:none;-webkit-backdrop-filter:none;background:var(--bg)}.nav{bottom:auto;height:calc(100vh - var(--hh));height:calc(100dvh - var(--hh));overscroll-behavior:contain}}
+@media (min-width:861px){.filters{max-height:calc(100vh - 112px);overflow:auto;overscroll-behavior:contain;padding:2px 6px 2px 2px;scrollbar-width:thin}}
+.burger[aria-expanded=true] i:nth-child(1){transform:translateY(7px) rotate(45deg)}.burger[aria-expanded=true] i:nth-child(2){opacity:0}.burger[aria-expanded=true] i:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media (max-width:860px){html:has(.stage){scroll-padding-top:calc(var(--hh) + max(42vh,260px) + 12px)}}
