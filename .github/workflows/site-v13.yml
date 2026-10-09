@@ -147,6 +147,11 @@ jobs:
           sudo apt-get update -qq > /dev/null && sudo apt-get install -y -qq poppler-utils > /dev/null
           python $M/v13src/site/fetch_fonts.py $M/v13src/site/app/v13/fonts
           ls $M/v13/renders/*.png | wc -l; ls $M/v13/out/mod | wc -l
+      - name: Web models (facet gate on the CAD export, join per part + meshopt compression, size budget)
+        run: |
+          pip install -q numpy==2.5.3
+          npm install --silent --no-audit --no-fund --prefix "$RUNNER_TEMP/gt" @gltf-transform/cli@4.5.1
+          python $M/v13src/cad/webopt13.py $M/v13/out "$RUNNER_TEMP/gt/node_modules"
       - name: Assemble site (images, modules, data, app, shells, redirects, sitemap)
         run: python $M/v13src/site/build_site13.py $PWD/site $M/v13/out $M/v13src/tr13.json $M/v13/renders -
       - name: Prerender every route (PL + EN)
@@ -156,7 +161,8 @@ jobs:
       - name: Tests (block deploy) - static links/SEO, browser 3D/configurator/mobile, publication grep
         run: |
           python $M/v13src/site/test_site13.py $PWD/site
-          rm site/routes13.json
+          python $M/v13src/site/test_techcopy13.py $M/v13src/site site/v13/data.js $M/v13src/cad
+          rm -f site/routes13.json
           python $M/v13src/site/grep_check13.py site
       - name: Commit to gh-pages (branch content = the tested build; redirects klasyczna.html, v8/, p/ come from the build)
         if: ${{ inputs.deploy != 'no' }}
