@@ -41,7 +41,7 @@ jobs:
         run: |
           (cd main/v13src/pack && for f in SHA256SUMS_*; do sha256sum -c $f; done)
           sudo mkdir -p /workspace && sudo chown "$USER" /workspace && mkdir -p $M/v13src
-          for d in a b c d e; do [ -d main/v13src/pack/$d ] || continue; cat main/v13src/pack/$d/*.b64 | base64 -d | tar -xJ -C $M/v13src; done; [ ! -f $M/v13src/qa/apply13.py ] || python3 $M/v13src/qa/apply13.py $M/v13src; ls -R $M/v13src | head -40
+          for d in a b c d e f; do [ -d main/v13src/pack/$d ] || continue; cat main/v13src/pack/$d/*.b64 | base64 -d | tar -xJ -C $M/v13src; done; [ ! -f $M/v13src/qa/apply13.py ] || python3 $M/v13src/qa/apply13.py $M/v13src; ls -R $M/v13src | head -40
       - name: CAD toolchain (same pins as the design workstation)
         run: pip install -q cadquery-ocp-novtk==8.0.1.1.0 cadquery-ocp-proxy==8.0.1.1.0 build123d==0.13.0 ezdxf==1.4.4 lib3mf==2.5.0 trimesh==5.1.1 numpy==2.5.3 pillow==12.2.0 scipy==1.18.1 rtree==1.4.1 networkx==3.7
       - name: Build geometry shard ${{ matrix.shard }} / 6 (render assemblies + configurator modules)
@@ -76,7 +76,7 @@ jobs:
       - name: Unpack bundle
         run: |
           sudo mkdir -p /workspace && sudo chown "$USER" /workspace && mkdir -p $M/v13src
-          for d in a b c d e; do [ -d main/v13src/pack/$d ] || continue; cat main/v13src/pack/$d/*.b64 | base64 -d | tar -xJ -C $M/v13src; done; [ ! -f $M/v13src/qa/apply13.py ] || python3 $M/v13src/qa/apply13.py $M/v13src
+          for d in a b c d e f; do [ -d main/v13src/pack/$d ] || continue; cat main/v13src/pack/$d/*.b64 | base64 -d | tar -xJ -C $M/v13src; done; [ ! -f $M/v13src/qa/apply13.py ] || python3 $M/v13src/qa/apply13.py $M/v13src
       - uses: actions/download-artifact@v4
         with: { pattern: cad-*, merge-multiple: true, path: /workspace/moodnook/v13/out }
       - name: Render shard ${{ matrix.shard }} / 16
@@ -109,7 +109,7 @@ jobs:
       - name: Unpack bundle
         run: |
           sudo mkdir -p /workspace && sudo chown "$USER" /workspace && mkdir -p $M/v13src
-          for d in a b c d e; do [ -d main/v13src/pack/$d ] || continue; cat main/v13src/pack/$d/*.b64 | base64 -d | tar -xJ -C $M/v13src; done; [ ! -f $M/v13src/qa/apply13.py ] || python3 $M/v13src/qa/apply13.py $M/v13src
+          for d in a b c d e f; do [ -d main/v13src/pack/$d ] || continue; cat main/v13src/pack/$d/*.b64 | base64 -d | tar -xJ -C $M/v13src; done; [ ! -f $M/v13src/qa/apply13.py ] || python3 $M/v13src/qa/apply13.py $M/v13src
       - uses: actions/download-artifact@v4
         with: { pattern: cad-*, merge-multiple: true, path: /workspace/moodnook/v13/out, run-id: '${{ inputs.reuse_run }}', github-token: '${{ github.token }}' }
       - name: Render finish pictures shard ${{ matrix.shard }} / 20 (every size and door style x offered finish)
@@ -133,7 +133,7 @@ jobs:
       - name: Unpack bundle
         run: |
           sudo mkdir -p /workspace && sudo chown "$USER" /workspace && mkdir -p $M/v13src
-          for d in a b c d e; do [ -d main/v13src/pack/$d ] || continue; cat main/v13src/pack/$d/*.b64 | base64 -d | tar -xJ -C $M/v13src; done; [ ! -f $M/v13src/qa/apply13.py ] || python3 $M/v13src/qa/apply13.py $M/v13src
+          for d in a b c d e f; do [ -d main/v13src/pack/$d ] || continue; cat main/v13src/pack/$d/*.b64 | base64 -d | tar -xJ -C $M/v13src; done; [ ! -f $M/v13src/qa/apply13.py ] || python3 $M/v13src/qa/apply13.py $M/v13src
       - uses: actions/download-artifact@v4
         with: { pattern: cad-*, merge-multiple: true, path: /workspace/moodnook/v13/out, run-id: '${{ inputs.reuse_run || github.run_id }}', github-token: '${{ github.token }}' }
       - uses: actions/download-artifact@v4
