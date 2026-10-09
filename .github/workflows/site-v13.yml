@@ -10,6 +10,10 @@ on:
         description: 'commit to gh-pages when all tests pass'
         required: false
         default: 'yes'
+      reuse_fin:
+        description: 'run id whose renders-fin-* artifacts (finish heroes) are reused, so a deploy run ships exactly the tested pictures; empty = render them in job render_fin'
+        required: false
+        default: ''
       finish_renders:
         description: 'per-finish hero pictures (F-06): yes = render them (with reuse_run in job render_fin); no = skip, site shows the default-finish photo with a caption'
         required: false
@@ -86,11 +90,11 @@ jobs:
             /workspace/moodnook/v13/renders/*_anchors.json
             /workspace/moodnook/v13/renders/shard_*.txt
   render_fin:
-    if: ${{ inputs.reuse_run != '' && inputs.finish_renders != 'no' }}
+    if: ${{ inputs.reuse_run != '' && inputs.finish_renders != 'no' && inputs.reuse_fin == '' }}
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
-      matrix: { shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11] }
+      matrix: { shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19] }
     env: { NF13_FINV: only }
     steps:
       - uses: actions/checkout@v4
@@ -108,8 +112,8 @@ jobs:
           for d in a b c d e; do [ -d main/v13src/pack/$d ] || continue; cat main/v13src/pack/$d/*.b64 | base64 -d | tar -xJ -C $M/v13src; done; [ ! -f $M/v13src/qa/apply13.py ] || python3 $M/v13src/qa/apply13.py $M/v13src
       - uses: actions/download-artifact@v4
         with: { pattern: cad-*, merge-multiple: true, path: /workspace/moodnook/v13/out, run-id: '${{ inputs.reuse_run }}', github-token: '${{ github.token }}' }
-      - name: Render finish heroes shard ${{ matrix.shard }} / 12
-        run: bash $M/v13src/render_shard13.sh ${{ matrix.shard }} 12
+      - name: Render finish pictures shard ${{ matrix.shard }} / 20 (every size and door style x offered finish)
+        run: bash $M/v13src/render_shard13.sh ${{ matrix.shard }} 20
       - uses: actions/upload-artifact@v4
         with:
           name: renders-fin-${{ matrix.shard }}
@@ -136,7 +140,7 @@ jobs:
         with: { pattern: renders-*, merge-multiple: true, path: /workspace/moodnook/v13/renders, run-id: '${{ inputs.reuse_run || github.run_id }}', github-token: '${{ github.token }}' }
       - uses: actions/download-artifact@v4
         if: ${{ inputs.reuse_run != '' && inputs.finish_renders != 'no' }}
-        with: { pattern: renders-fin-*, merge-multiple: true, path: /workspace/moodnook/v13/renders }
+        with: { pattern: renders-fin-*, merge-multiple: true, path: /workspace/moodnook/v13/renders, run-id: '${{ inputs.reuse_fin || github.run_id }}', github-token: '${{ github.token }}' }
       - name: Tools (pillow, playwright on the runner's Chrome, poppler, web fonts)
         run: |
           pip install -q pillow==12.2.0 playwright==1.63.0
