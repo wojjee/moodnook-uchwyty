@@ -10,12 +10,17 @@ on:
         description: 'commit to gh-pages when all tests pass'
         required: false
         default: 'yes'
+      finish_renders:
+        description: 'per-finish hero pictures (F-06): yes = render them (with reuse_run in job render_fin); no = skip, site shows the default-finish photo with a caption'
+        required: false
+        default: 'yes'
 permissions:
   contents: write
   actions: read
 concurrency: { group: site-v13, cancel-in-progress: false }
 env:
   M: /workspace/moodnook
+  NF13_FINV: ${{ inputs.finish_renders == 'no' && '0' || '1' }}
 jobs:
   cad:
     if: ${{ inputs.reuse_run == '' }}
@@ -32,7 +37,7 @@ jobs:
         run: |
           (cd main/v13src/pack && for f in SHA256SUMS_*; do sha256sum -c $f; done)
           sudo mkdir -p /workspace && sudo chown "$USER" /workspace && mkdir -p $M/v13src
-          for d in a b c d; do [ -d main/v13src/pack/$d ] || continue; cat main/v13src/pack/$d/*.b64 | base64 -d | tar -xJ -C $M/v13src; done; ls -R $M/v13src | head -40
+          for d in a b c d e; do [ -d main/v13src/pack/$d ] || continue; cat main/v13src/pack/$d/*.b64 | base64 -d | tar -xJ -C $M/v13src; done; [ ! -f $M/v13src/qa/apply13.py ] || python3 $M/v13src/qa/apply13.py $M/v13src; ls -R $M/v13src | head -40
       - name: CAD toolchain (same pins as the design workstation)
         run: pip install -q cadquery-ocp-novtk==8.0.1.1.0 cadquery-ocp-proxy==8.0.1.1.0 build123d==0.13.0 ezdxf==1.4.4 lib3mf==2.5.0 trimesh==5.1.1 numpy==2.5.3 pillow==12.2.0 scipy==1.18.1 rtree==1.4.1 networkx==3.7
       - name: Build geometry shard ${{ matrix.shard }} / 6 (render assemblies + configurator modules)
@@ -67,7 +72,7 @@ jobs:
       - name: Unpack bundle
         run: |
           sudo mkdir -p /workspace && sudo chown "$USER" /workspace && mkdir -p $M/v13src
-          for d in a b c d; do [ -d main/v13src/pack/$d ] || continue; cat main/v13src/pack/$d/*.b64 | base64 -d | tar -xJ -C $M/v13src; done
+          for d in a b c d e; do [ -d main/v13src/pack/$d ] || continue; cat main/v13src/pack/$d/*.b64 | base64 -d | tar -xJ -C $M/v13src; done; [ ! -f $M/v13src/qa/apply13.py ] || python3 $M/v13src/qa/apply13.py $M/v13src
       - uses: actions/download-artifact@v4
         with: { pattern: cad-*, merge-multiple: true, path: /workspace/moodnook/v13/out }
       - name: Render shard ${{ matrix.shard }} / 16
@@ -80,9 +85,39 @@ jobs:
             /workspace/moodnook/v13/renders/*.png
             /workspace/moodnook/v13/renders/*_anchors.json
             /workspace/moodnook/v13/renders/shard_*.txt
+  render_fin:
+    if: ${{ inputs.reuse_run != '' && inputs.finish_renders != 'no' }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix: { shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11] }
+    env: { NF13_FINV: only }
+    steps:
+      - uses: actions/checkout@v4
+        with: { path: main, sparse-checkout: v13src }
+      - uses: actions/cache@v4
+        with: { path: ~/blender, key: blender-4.2.23-linux-x64 }
+      - name: Blender 4.2.23 LTS
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq libxi6 libxkbcommon0 libsm6 libgl1 libxrender1 libxxf86vm1 libxfixes3 > /dev/null
+          if [ ! -x ~/blender/blender ]; then curl -sL https://download.blender.org/release/Blender4.2/blender-4.2.23-linux-x64.tar.xz | tar -xJ -C ~ && mv ~/blender-4.2.23-linux-x64 ~/blender; fi
+          ~/blender/blender --version | head -1
+      - name: Unpack bundle
+        run: |
+          sudo mkdir -p /workspace && sudo chown "$USER" /workspace && mkdir -p $M/v13src
+          for d in a b c d e; do [ -d main/v13src/pack/$d ] || continue; cat main/v13src/pack/$d/*.b64 | base64 -d | tar -xJ -C $M/v13src; done; [ ! -f $M/v13src/qa/apply13.py ] || python3 $M/v13src/qa/apply13.py $M/v13src
+      - uses: actions/download-artifact@v4
+        with: { pattern: cad-*, merge-multiple: true, path: /workspace/moodnook/v13/out, run-id: '${{ inputs.reuse_run }}', github-token: '${{ github.token }}' }
+      - name: Render finish heroes shard ${{ matrix.shard }} / 12
+        run: bash $M/v13src/render_shard13.sh ${{ matrix.shard }} 12
+      - uses: actions/upload-artifact@v4
+        with:
+          name: renders-fin-${{ matrix.shard }}
+          retention-days: 3
+          path: /workspace/moodnook/v13/renders/*.png
   site:
-    needs: render
-    if: ${{ always() && (needs.render.result == 'success' || inputs.reuse_run != '') }}
+    needs: [render, render_fin]
+    if: ${{ always() && (needs.render.result == 'success' || (inputs.reuse_run != '' && (needs.render_fin.result == 'success' || needs.render_fin.result == 'skipped'))) }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -94,11 +129,14 @@ jobs:
       - name: Unpack bundle
         run: |
           sudo mkdir -p /workspace && sudo chown "$USER" /workspace && mkdir -p $M/v13src
-          for d in a b c d; do [ -d main/v13src/pack/$d ] || continue; cat main/v13src/pack/$d/*.b64 | base64 -d | tar -xJ -C $M/v13src; done
+          for d in a b c d e; do [ -d main/v13src/pack/$d ] || continue; cat main/v13src/pack/$d/*.b64 | base64 -d | tar -xJ -C $M/v13src; done; [ ! -f $M/v13src/qa/apply13.py ] || python3 $M/v13src/qa/apply13.py $M/v13src
       - uses: actions/download-artifact@v4
         with: { pattern: cad-*, merge-multiple: true, path: /workspace/moodnook/v13/out, run-id: '${{ inputs.reuse_run || github.run_id }}', github-token: '${{ github.token }}' }
       - uses: actions/download-artifact@v4
         with: { pattern: renders-*, merge-multiple: true, path: /workspace/moodnook/v13/renders, run-id: '${{ inputs.reuse_run || github.run_id }}', github-token: '${{ github.token }}' }
+      - uses: actions/download-artifact@v4
+        if: ${{ inputs.reuse_run != '' && inputs.finish_renders != 'no' }}
+        with: { pattern: renders-fin-*, merge-multiple: true, path: /workspace/moodnook/v13/renders }
       - name: Tools (pillow, playwright on the runner's Chrome, poppler, web fonts)
         run: |
           pip install -q pillow==12.2.0 playwright==1.63.0
