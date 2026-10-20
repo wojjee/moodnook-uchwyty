@@ -231,7 +231,7 @@ fieldset{border:0;padding:0;margin:0 0 20px}legend{font:450 var(--fs-xs)/1 var(-
  .cf{grid-template-columns:1fr;gap:16px}
  .stage{position:sticky;top:var(--hh);z-index:5;margin-inline:calc(-1*var(--side));background:var(--bg-2);border-bottom:1px solid var(--line)}
  .stage .v3{aspect-ratio:auto;height:42vh;min-height:260px}
- .opts{flex-wrap:nowrap;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px;margin-inline:calc(-1*var(--side));padding-inline:var(--side)}.opt,.opts .seg,.opts .sws{scroll-snap-align:start;flex:none}.opt.th{flex:none;width:72%}.opts .seg,.opts .sws{flex-wrap:nowrap}
+ .opts{flex-wrap:nowrap;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px;margin-inline:calc(-1*var(--side));padding-inline:var(--side)}.opt,.opts .seg,.opts .sws{scroll-snap-align:start;flex:none}.opt.th{flex:none;width:min(72%,300px)}.opts .seg,.opts .sws{flex-wrap:nowrap}
  .cbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:35;background:var(--bg);border-top:1px solid var(--line);padding:10px var(--side) calc(10px + env(safe-area-inset-bottom));gap:12px;align-items:center;justify-content:space-between}
  .cf+.cbar~*{padding-bottom:64px}body:has(.cbar) .ft{padding-bottom:110px}body:has(.pbar) .ft{padding-bottom:110px}
  .row2{grid-template-columns:1fr}.inq li{grid-template-columns:64px 1fr;gap:10px 14px}.inq .qty{grid-column:2}.inq .lnk{grid-column:2;justify-self:start}.ith img{width:64px;height:48px}
